@@ -1,6 +1,78 @@
 import type { NextPage } from "next";
 
 const About: NextPage = () => {
+  const skills = [
+    { name: "Comparative Literature", level: "90%" },
+    { name: "Research and Analysis", level: "85%" },
+    { name: "Teaching", level: "95%" },
+    { name: "Public Speaking", level: "80%" },
+  ];
+
+  const education = [
+    { year: "2019", title: "Ph.D. (English)", details: "SRTM University Nanded - The Phenomenal Women: A Comparative Study of the Select Poetry of Maya Angelou and Meena Kandasamy." },
+    { year: "2016", title: "M.Phil. (English)", details: "SRTM University Nanded, 70.7% - Whispering to Wisdom: A Study of Meena Kandasamy’s Touch." },
+    { year: "2012", title: "M.Ed.", details: "SRTM University Nanded, 60.80% - Philosophy and Social Foundation of Educational Psychology." },
+    { year: "2012", title: "UGC-NET (English)", details: "UGC-New Delhi - Qualified (Ugc Ref. No.43033/(NETJUNE 20 I 2))." },
+    { year: "2008", title: "B.Ed.", details: "SRTM University Nanded, 56.1% - Teacher and Edu. in Emerging Indian Society." },
+    { year: "2005", title: "M.A. (English)", details: "SRTM University Nanded, 57.75% - English Language & Literature." },
+    { year: "2002", title: "B.A.", details: "SRTM University Nanded, 52.54% - English, Sociology, Economics." },
+    { year: "1998", title: "H.S.C.", details: "CBSE New Delhi, 63.30% - English, Hindi, History, Economics, Geography." },
+    { year: "1996", title: "S.S.C.", details: "CBSE New Delhi, 59.30% - English, Marathi, Maths, Science, Social Studies." },
+  ];
+
+  const experience = [
+    { period: "2023 to Present", title: "Associate Professor", details: "Vasantdada Patil Pratishtan’s College of Engineering, Mumbai - Teaching Professional Communication & Ethics." },
+    { period: "July 2022 to July 2023", title: "Assistant Professor", details: "Shah & Anchor Kutchhi Engineering College, Govandi, Chembur - Professional Communication & Ethics." },
+    { period: "March 2022 to June 2022", title: "Assistant Professor", details: "Terna Engineering College, Nerul - Professional Communication & Ethics." },
+    { period: "Sept 2019 to Oct 2021", title: "Assistant Professor", details: "AMANCS College, Ratnagiri - English Literature & Communication Skills." },
+    { period: "June 2013 to July 2018", title: "Assistant Professor", details: "Kai.Nivrutirao Patil Jawalgaonkar Mahavidyalaya, Nanded - English Language and Literature & Communication Skills." },
+    { period: "Dec 2012 to Feb 2013", title: "Assistant Professor", details: "Rajiv Gandhi College of CS and Management, Nanded - Communication Skills." },
+    { period: "Oct 2009 to July 2012", title: "Lecturer", details: "SSCR DEd College, Londhesangavi, Nanded - English Methodology, Educational Psychology, Educational IT." },
+    { period: "Nov 2008 to Mar 2009", title: "Lecturer", details: "Balaji College of Education, Toranjgaon, Yeola, Nasik - English Methodology, Communication Skills, Educational Psychology." },
+    { period: "July 2007 to Oct 2008", title: "Lecturer", details: "SSCR DEd College, Londhesangavi, Nanded - English Methodology, Educational Psychology, Educational IT." },
+  ];
+
+  const memberships = [
+    "Executive Member of MES’s Swami Vivekanand Senior College, Mantha",
+    "Member of Pune University English Teachers’ Association",
+    "Member of Dr. Babasaheb Ambedkar Marathwada University English Teachers’ Association"
+  ];
+
+  const languages = [
+    { name: "English", level: "95%" },
+    { name: "Marathi", level: "90%" },
+    { name: "Hindi", level: "85%" },
+  ];
+
+  const interests = [
+    "Reading",
+    "Writing",
+    "Public Speaking",
+    "Traveling"
+  ];
+  const Personal = [
+    {
+      name: "Name",
+      value: "Dr. Narayan Jadhav",
+    },
+    {
+      name : "Email",
+      value: "njadhav34@gmail.com"
+    },
+    {
+      name : "Degree",
+      value: "Ph.D. in English"
+    },
+    {
+      name: "Phone",
+      value: "+91 9763091564"
+    },
+    {
+      name: "City",
+      value: "Badlapur, Thane"
+    }
+  ]
+
   return (
     <main>
       <section className="about section" id="about">
@@ -30,36 +102,15 @@ const About: NextPage = () => {
               <div className="row">
                 <div className="personal-info padd-15">
                   <div className="row">
+                      {Personal.map((pers, index)=>(
                     <div className="info-item padd-15">
-                      <p>
-                        Website : <span>www.urfolio.vercel.app</span>
-                      </p>
+                        <div key={index}>
+                          <p>
+                            {pers.name}: <span>{pers.value}</span>
+                          </p>
+                        </div>
                     </div>
-                    <div className="info-item padd-15">
-                      <p>
-                        Email : <span>njadhav34@gmail.com</span>
-                      </p>
-                    </div>
-                    <div className="info-item padd-15">
-                      <p>
-                        Degree : <span>Ph.D. in English</span>
-                      </p>
-                    </div>
-                    <div className="info-item padd-15">
-                      <p>
-                        Phone : <span>+91 9763091564</span>
-                      </p>
-                    </div>
-                    <div className="info-item padd-15">
-                      <p>
-                        City : <span>Badlapur, Thane</span>
-                      </p>
-                    </div>
-                    {/* <div className="info-item padd-15">
-                      <p>
-                        Freelance : <span>Available</span>
-                      </p>
-                    </div> */}
+                      ))}
                   </div>
                   <div className="row">
                     <div className="buttons padd-15">
@@ -82,34 +133,15 @@ const About: NextPage = () => {
                 </div>
                 <div className="skills padd-15">
                   <div className="row">
-                    <div className="skill-item padd-15">
-                      <h5>Comparative Literature</h5>
-                      <div className="progress">
-                        <div className="progress-in" style={{ width: "90%" }} />
-                        <div className="skill-percent">90%</div>
+                    {skills.map((skill, index) => (
+                      <div key={index} className="skill-item padd-15">
+                        <h5>{skill.name}</h5>
+                        <div className="progress">
+                          <div className="progress-in" style={{ width: skill.level }} />
+                          <div className="skill-percent">{skill.level}</div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="skill-item padd-15">
-                      <h5>Research and Analysis</h5>
-                      <div className="progress">
-                        <div className="progress-in" style={{ width: "85%" }} />
-                        <div className="skill-percent">85%</div>
-                      </div>
-                    </div>
-                    <div className="skill-item padd-15">
-                      <h5>Teaching</h5>
-                      <div className="progress">
-                        <div className="progress-in" style={{ width: "95%" }} />
-                        <div className="skill-percent">95%</div>
-                      </div>
-                    </div>
-                    <div className="skill-item padd-15">
-                      <h5>Public Speaking</h5>
-                      <div className="progress">
-                        <div className="progress-in" style={{ width: "80%" }} />
-                        <div className="skill-percent">80%</div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -119,124 +151,16 @@ const About: NextPage = () => {
                   <div className="row">
                     <div className="timeline-box padd-15">
                       <div className="timeline shadow-dark">
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> 2019
-                          </h6>
-                          <h4 className="timeline-title">Ph.D. (English)</h4>
-                          <p className="timeline-text">
-                            SRTM University Nanded - The Phenomenal Women: A
-                            Comparative Study of the Select Poetry of Maya
-                            Angelou and Meena Kandasamy.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> 2016
-                          </h6>
-                          <h4 className="timeline-title">M.Phil. (English)</h4>
-                          <p className="timeline-text">
-                            SRTM University Nanded, 70.7% - Whispering to
-                            Wisdom: A Study of Meena Kandasamy’s Touch.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> 2012
-                          </h6>
-                          <h4 className="timeline-title">M.Ed.</h4>
-                          <p className="timeline-text">
-                            SRTM University Nanded, 60.80% - Philosophy and
-                            Social Foundation of Educational Psychology.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> 2012
-                          </h6>
-                          <h4 className="timeline-title">UGC-NET (English)</h4>
-                          <p className="timeline-text">
-                            UGC-New Delhi - Qualified (Ugc Ref.
-                            No.43033/(NETJUNE 20 I 2)).
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> 2008
-                          </h6>
-                          <h4 className="timeline-title">B.Ed.</h4>
-                          <p className="timeline-text">
-                            SRTM University Nanded, 56.1% - Teacher and Edu. in
-                            Emerging Indian Society.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> 2005
-                          </h6>
-                          <h4 className="timeline-title">M.A. (English)</h4>
-                          <p className="timeline-text">
-                            SRTM University Nanded, 57.75% - English Language &
-                            Literature.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> 2002
-                          </h6>
-                          <h4 className="timeline-title">B.A.</h4>
-                          <p className="timeline-text">
-                            SRTM University Nanded, 52.54% - English, Sociology,
-                            Economics.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> 1998
-                          </h6>
-                          <h4 className="timeline-title">H.S.C.</h4>
-                          <p className="timeline-text">
-                            CBSE New Delhi, 63.30% - English, Hindi, History,
-                            Economics, Geography.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> 1996
-                          </h6>
-                          <h4 className="timeline-title">S.S.C.</h4>
-                          <p className="timeline-text">
-                            CBSE New Delhi, 59.30% - English, Marathi, Maths,
-                            Science, Social Studies.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
+                        {education.map((edu, index) => (
+                          <div key={index} className="timeline-item">
+                            <div className="circle-dot" />
+                            <h6 className="timeline-date">
+                              <i className="fa fa-calendar" /> {edu.year}
+                            </h6>
+                            <h4 className="timeline-title">{edu.title}</h4>
+                            <p className="timeline-text">{edu.details}</p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -247,221 +171,52 @@ const About: NextPage = () => {
                   <div className="row">
                     <div className="timeline-box padd-15">
                       <div className="timeline shadow-dark">
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> 2023 to Present
-                          </h6>
-                          <h4 className="timeline-title">
-                            Associate Professor
-                          </h4>
-                          <p className="timeline-text">
-                            Vasantdada Patil Pratishtan’s College of
-                            Engineering, Mumbai - Teaching Professional
-                            Communication & Ethics.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> July 2022 to July
-                            2023
-                          </h6>
-                          <h4 className="timeline-title">
-                            Assistant Professor
-                          </h4>
-                          <p className="timeline-text">
-                            Shah & Anchor Kutchhi Engineering College, Govandi,
-                            Chembur - Professional Communication & Ethics.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> March 2022 to June
-                            2022
-                          </h6>
-                          <h4 className="timeline-title">
-                            Assistant Professor
-                          </h4>
-                          <p className="timeline-text">
-                            Terna Engineering College, Nerul - Professional
-                            Communication & Ethics.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> Sept 2019 to Oct
-                            2021
-                          </h6>
-                          <h4 className="timeline-title">
-                            Assistant Professor
-                          </h4>
-                          <p className="timeline-text">
-                            AMANCS College, Ratnagiri - English Literature &
-                            Communication Skills.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> June 2013 to July
-                            2018
-                          </h6>
-                          <h4 className="timeline-title">
-                            Assistant Professor
-                          </h4>
-                          <p className="timeline-text">
-                            Kai.Nivrutirao Patil Jawalgaonkar Mahavidyalaya,
-                            Nanded - English Language and Literature &
-                            Communication Skills.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> Dec 2012 to Feb
-                            2013
-                          </h6>
-                          <h4 className="timeline-title">
-                            Assistant Professor
-                          </h4>
-                          <p className="timeline-text">
-                            Rajiv Gandhi College of CS and Management, Nanded -
-                            Communication Skills.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> Oct 2009 to July
-                            2012
-                          </h6>
-                          <h4 className="timeline-title">Lecturer</h4>
-                          <p className="timeline-text">
-                            SSCR DEd College, Londhesangavi, Nanded - English
-                            Methodology, Educational Psychology, Educational IT.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> Nov 2008 to Mar
-                            2009
-                          </h6>
-                          <h4 className="timeline-title">Lecturer</h4>
-                          <p className="timeline-text">
-                            Balaji College of Education, Toranjgaon, Yeola,
-                            Nasik - English Methodology, Communication Skills,
-                            Educational Psychology.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
-                        {/* Timeline Item */}
-                        <div className="timeline-item">
-                          <div className="circle-dot" />
-                          <h6 className="timeline-date">
-                            <i className="fa fa-calendar" /> July 2007 to Oct
-                            2008
-                          </h6>
-                          <h4 className="timeline-title">Lecturer</h4>
-                          <p className="timeline-text">
-                            SSCR DEd College, Londhesangavi, Nanded - English
-                            Methodology, Educational Psychology, Educational IT.
-                          </p>
-                        </div>
-                        {/* Timeline Item end */}
+                        {experience.map((exp, index) => (
+                          <div key={index} className="timeline-item">
+                            <div className="circle-dot" />
+                            <h6 className="timeline-date">
+                              <i className="fa fa-calendar" /> {exp.period}
+                            </h6>
+                            <h4 className="timeline-title">{exp.title}</h4>
+                            <p className="timeline-text">{exp.details}</p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="row">
-                <div className="memberships padd-15">
-                  <h3 className="title">Professional Memberships</h3>
-                  <div className="row">
-                    <div className="membership-item padd-15">
-                      <p>
-                        Executive Member of MES’s Swami Vivekanand Senior
-                        College, Mantha
-                      </p>
-                    </div>
-                    <div className="membership-item padd-15">
-                      <p>
-                        Member of Pune University English Teachers’ Association
-                      </p>
-                    </div>
-                    <div className="membership-item padd-15">
-                      <p>
-                        Member of Dr. Babasaheb Ambedkar Marathwada University
-                        English Teachers’ Association
-                      </p>
-                    </div>
-                  </div>
+                <div className="memberships padd-15 ">
+                  <h3 className="title">Memberships</h3>
+                  <ul>
+                    {memberships.map((membership, index) => (
+                      <li key={index}>{membership}</li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-              <div className="row">
+
                 <div className="languages padd-15">
                   <h3 className="title">Languages</h3>
                   <div className="row">
-                    <div className="language-item padd-15">
-                      <p>English</p>
-                      <div className="progress">
-                        <div className="progress-in" style={{ width: "95%" }} />
-                        <div className="skill-percent">95%</div>
+                    {languages.map((language, index) => (
+                      <div key={index} className="language-item padd-15">
+                        <h5>{language.name}</h5>
+                        <div className="progress">
+                          <div className="progress-in" style={{ width: language.level }} />
+                          <div className="skill-percent">{language.level}</div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="language-item padd-15">
-                      <p>Marathi</p>
-                      <div className="progress">
-                        <div className="progress-in" style={{ width: "90%" }} />
-                        <div className="skill-percent">90%</div>
-                      </div>
-                    </div>
-                    <div className="language-item padd-15">
-                      <p>Hindi</p>
-                      <div className="progress">
-                        <div className="progress-in" style={{ width: "85%" }} />
-                        <div className="skill-percent">85%</div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
-              </div>
-              <div className="row">
+
                 <div className="interests padd-15">
                   <h3 className="title">Interests</h3>
-                  <div className="row">
-                    <div className="interest-item padd-15">
-                      <p>Reading</p>
-                    </div>
-                    <div className="interest-item padd-15">
-                      <p>Writing</p>
-                    </div>
-                    <div className="interest-item padd-15">
-                      <p>Public Speaking</p>
-                    </div>
-                    <div className="interest-item padd-15">
-                      <p>Traveling</p>
-                    </div>
-                  </div>
+                  <ul>
+                    {interests.map((interest, index) => (
+                      <li key={index}>{interest}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
