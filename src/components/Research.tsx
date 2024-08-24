@@ -135,7 +135,7 @@ const ResearchPublications: NextPage = () => {
           <div className="publications-content  flex flex-col gap-5">
             {publications.map((pub, index) => (
               <div key={index} className="publication-item bg-blue-600 rounded-lg p-5 flex flex-col gap-1 ">
-                <h4 className="title border-[2px] border-[white] rounded-lg text-white pl-2 w-full">{pub.title}</h4>
+                <h4 className="title rounded-lg text-white font-bold text-[1.5rem] w-full">{pub.title}</h4>
                 <h2 >
                   <strong>Authors:</strong> {pub.authors}
                 </h2>
