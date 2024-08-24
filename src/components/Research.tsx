@@ -132,10 +132,10 @@ const ResearchPublications: NextPage = () => {
           <div className="section-title padd-15">
             <h2>Research Publications in Journals</h2>
           </div>
-          <div className="publications-content padd-15">
+          <div className="publications-content  flex flex-col gap-5">
             {publications.map((pub, index) => (
-              <div key={index} className="publication-item">
-                <h4 className="title">{pub.title}</h4>
+              <div key={index} className="publication-item bg-blue-600 rounded-lg p-5 flex flex-col gap-1 ">
+                <h4 className="title border-[2px] border-[white] rounded-lg text-white pl-2 w-full">{pub.title}</h4>
                 <h2 >
                   <strong>Authors:</strong> {pub.authors}
                 </h2>

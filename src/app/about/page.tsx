@@ -76,14 +76,14 @@ const About: NextPage = () => {
   return (
     <main>
       <section className="about section" id="about">
-        <div className="container">
+        <div className="container flex flex-col ">
           <div className="row">
             <div className="section-title padd-15">
               <h2>About Me</h2>
             </div>
           </div>
           <div className="row">
-            <div className="about-content padd-15">
+            <div className="about-content padd-15 flex gap-10 flex-col">
               <div className="row">
                 <div className="about-text padd-15">
                   <h2>
@@ -99,11 +99,11 @@ const About: NextPage = () => {
                   </p>
                 </div>
               </div>
-              <div className="row">
-                <div className="personal-info padd-15">
-                  <div className="row">
+              <div className="row flex justify-center border-[0.1px] border-[white] bg-[#1a1a1a] rounded-xl pb-10" >
+                <div className="personal-info ">
+                  <div className="row flex flex-col">
                       {Personal.map((pers, index)=>(
-                    <div className="info-item padd-15">
+                    <div className="info-item padd-15 boder-[white]">
                         <div key={index}>
                           <p>
                             {pers.name}: <span>{pers.value}</span>

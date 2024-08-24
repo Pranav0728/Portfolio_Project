@@ -68,10 +68,10 @@ const BooksList: NextPage = () => {
             {/* Book List  */}
             <h2>Books List</h2>
           </div>
-          <div className="books-content padd-15">
+          <div className="books-content flex flex-col gap-5">
             {books.map((book) => (
-              <div key={book.srNo} className="book-item">
-                <h3>{book.title}</h3>
+              <div key={book.srNo} className="book-item  bg-blue-600 rounded-lg p-5 flex flex-col gap-1" >
+                <h3 className="border-[2px] border-[white] rounded-lg text-white pl-2 w-full">{book.title}</h3>
                 <p><strong>Author:</strong> {book.author}</p>
                 <p><strong>Publisher:</strong> {book.publisher}</p>
                 <p><strong>Position:</strong> {book.position}</p>
