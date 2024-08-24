@@ -65,6 +65,7 @@ const BooksList: NextPage = () => {
       <section className="books-list section" id="books-list">
         <div className="container">
           <div className="section-title padd-15">
+            {/* Book List  */}
             <h2>Books List</h2>
           </div>
           <div className="books-content padd-15">
