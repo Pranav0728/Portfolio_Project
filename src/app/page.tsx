@@ -1,5 +1,5 @@
 import { Lobster, Rokkitt, Oswald, Courgette } from 'next/font/google';
-
+import Image from 'next/image';
 // Font Families
 const lobster = Lobster({ 
   subsets: ['latin'],
@@ -35,11 +35,13 @@ export default function Home() {
       <section className="home section flex justify-center items-center py-20" id="home">
         <div className="container flex gap-5 justify-center items-center">
           <div className="intro flex gap-5">
-            <img
+            <Image
               src={Personal.img}
               alt="Profile of Dr. Narayan Jadhav"
               className="shadow-dark rounded-full w-48 h-48 object-cover"
               loading="lazy"
+              width={200}
+              height={200}
             />
             <div className="flex flex-col items-center justify-center">
               <h1 className={`text-[4rem] text-black ${lobster.className}`}>{Personal.name}</h1>
