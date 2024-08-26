@@ -40,7 +40,7 @@ const ResearchPapers: NextPage = () => {
     <main>
       <section className="research-papers section" id="research-papers">
         <div className="container">
-          <div className="section-title padd-15">
+          <div className="section-title about-content padd-15">
             <h2>Research Papers Presented in National/International Conferences/Seminars/Workshops</h2>
           </div>
           <div className="papers-content padd-15">

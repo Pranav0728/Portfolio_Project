@@ -1,36 +1,58 @@
+import { Lobster, Rokkitt, Oswald, Courgette } from 'next/font/google';
 
-export default async function Home() {
+// Font Families
+const lobster = Lobster({ 
+  subsets: ['latin'],
+  weight: '400', // Ensure weight is a string
+});
 
+const rokkitt = Rokkitt({ 
+  subsets: ['latin'],
+  weight: '200',
+  preload: true, // Preload if necessary
+});
+
+const oswald = Oswald({ 
+  subsets: ['latin'],
+  weight: '200',
+  preload: false,
+});
+
+const courgette = Courgette({ 
+  subsets: ['latin'],
+  weight: '400',
+  preload: false,
+});
+
+export default function Home() {
   return (
-    <main>
-      <section className="home section  " id="home">
-        <div className="container flex gap-5 justify-center">
-          <div className="intro">
+    <main className="min-h-screen bg-gray-100 " id="about">
+      <section className="home section flex justify-center items-center py-20" id="home">
+        <div className="container flex gap-5 justify-center items-center">
+          <div className="intro flex gap-5">
             <img
               src="/imgs/Profile.png"
-              alt="Al Siam Profile"
-              className="shadow-dark"   
+              alt="Profile of Dr. Narayan Jadhav"
+              className="shadow-dark rounded-full w-48 h-48 object-cover"
+              loading="lazy"
             />
-            <div>
-            <h1 className=" text-[2.5rem]  text-black ">Dr. Narayan Jadhav</h1>
-            </div>
-            <p className="text-[1.5rem]">Professor</p>
-            <div className="social-links">
-              <a href="https://twitter.com/" target="_blank">
-                <i className="fa fa-twitter" />
-              </a>
-              <a href="https://facebook.com/" target="_blank">
-                <i className="fa fa-facebook" />
-              </a>
-              <a href="https://github.com/" target="_blank">
-                <i className="fa fa-github" />
-              </a>
-              <a href="https://instagram.com/" target="_blank">
-                <i className="fa fa-instagram" />
-              </a>
-              <a href="https://linkedin.com/in/" target="_blank">
-                <i className="fa fa-linkedin" />
-              </a>
+            <div className="flex flex-col items-center justify-center">
+              <h1 className={`text-[4rem] text-black ${lobster.className}`}>Dr. Narayan Jadhav</h1>
+              <p className={`text-[2rem] mt-2 ${courgette.className}`}>Professor at Vppceo & VA</p>
+            
+              <div className="social-links flex gap-3 mt-4">
+                {[
+                  { href: "https://twitter.com/", icon: "fa-twitter" },
+                  { href: "https://facebook.com/", icon: "fa-facebook" },
+                  { href: "https://github.com/", icon: "fa-github" },
+                  { href: "https://instagram.com/", icon: "fa-instagram" },
+                  { href: "https://linkedin.com/in/", icon: "fa-linkedin" }
+                ].map(({ href, icon }) => (
+                  <a key={icon} href={href} target="_blank" aria-label={`Link to ${icon.split('-')[1]}`}>
+                    <i className={`fa ${icon}`} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -355,6 +355,10 @@ align-items: center;
 .aside .nav-toggler.open span {
   background-color: transparent;
 }
+
+.newrow{
+  height: 50vh;
+}
 .aside .nav-toggler span::before {
   content: "";
   height: 2.5px;
@@ -422,8 +426,8 @@ align-items: center;
   text-align: center;
 }
 .home .intro img {
-  width: 16rem;
-  height: 15rem;
+  width: 18rem;
+  height: 18rem;
   border-radius: 50%;
   display: inline-block;
   border: 8px solid #ffffff;
@@ -469,12 +473,23 @@ align-items: center;
   -ms-flex: 0 0 100%;
   flex: 0 0 100%;
   max-width: 100%;
+  color: white;
 }
 .about .about-content .about-text {
   -ms-flex: 0 0 100%;
   flex: 0 0 100%;
   max-width: 100%;
+  color: white;
 }
+
+.about .about-content .about-text2 {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  color: white;
+}
+
+
 .about .about-content .about-text h2 {
   font-size: 24px;
   margin-bottom: 15px;
@@ -482,6 +497,27 @@ align-items: center;
   color: #302e4d;
 }
 .about .about-content .about-text p {
+  font-size: 16px;
+  line-height: 25px;
+  color: #504e70;
+  margin: 0;
+}
+
+.about .about-content .about-text2 {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  color: white;
+}
+
+
+.about .about-content .about-text2 h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #302e4d;
+}
+.about .about-content .about-text2 p {
   font-size: 16px;
   line-height: 25px;
   color: #504e70;
@@ -588,8 +624,23 @@ align-items: center;
   flex: 0 0 100%;
   max-width: 100%;
 }
+
+.timeline2{
+  background-color: #222222;
+  
+  padding: 30px 15px;
+  border: 1px solid #d4d4e3;
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+}
 .about .about-content .timeline {
   background-color: #fdf9ff;
+  padding: 30px 15px;
+  border: 1px solid #d4d4e3;
+  border-radius: 10px;
+  width: 100%;
+  position: relative; background-color: #fdf9ff;
   padding: 30px 15px;
   border: 1px solid #d4d4e3;
   border-radius: 10px;
@@ -1132,6 +1183,8 @@ align-items: center;
 [data-theme='dark'] .about .about-content .skills .skill-item h5,
 [data-theme='dark'] .about .about-content .personal-info .info-item p,
 [data-theme='dark'] .about .about-content .about-text h2,
+[data-theme='dark'] .about .about-content .about-text2 ,
+
 [data-theme='dark'] .section-title h2,
 [data-theme='dark'] .home .intro h1,
 [data-theme='dark'] .aside .copyright,

@@ -99,9 +99,9 @@ const About: NextPage = () => {
                   </p>
                 </div>
               </div>
-              <div className="row flex justify-center border-[0.1px] border-[white] bg-[#1a1a1a] rounded-xl pb-10" >
-                <div className="personal-info ">
-                  <div className="row flex flex-col">
+              <div className=" timeline newrow flex justify-center rounded-xl pb-10" >
+                <div className="  personal-info ">
+                  <div className="row  flex flex-col">
                       {Personal.map((pers, index)=>(
                     <div className="info-item padd-15 boder-[white]">
                         <div key={index}>
