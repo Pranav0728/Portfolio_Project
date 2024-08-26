@@ -24,6 +24,11 @@ const courgette = Courgette({
   preload: false,
 });
 
+const Personal = {
+  img: "/imgs/Profile.png",
+  name: "Dr. Narayan Jadhav",
+  clg: "Professor at Vppceo & VA"
+}
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-100 " id="about">
@@ -31,16 +36,16 @@ export default function Home() {
         <div className="container flex gap-5 justify-center items-center">
           <div className="intro flex gap-5">
             <img
-              src="/imgs/Profile.png"
+              src={Personal.img}
               alt="Profile of Dr. Narayan Jadhav"
               className="shadow-dark rounded-full w-48 h-48 object-cover"
               loading="lazy"
             />
             <div className="flex flex-col items-center justify-center">
-              <h1 className={`text-[4rem] text-black ${lobster.className}`}>Dr. Narayan Jadhav</h1>
-              <p className={`text-[2rem] mt-2 ${courgette.className}`}>Professor at Vppceo & VA</p>
+              <h1 className={`text-[4rem] text-black ${lobster.className}`}>{Personal.name}</h1>
+              <p className={`text-[2rem] mt-2 ${courgette.className}`}>{Personal.clg}</p>
             
-              <div className="social-links flex gap-3 mt-4">
+              {/* <div className="social-links flex gap-3 mt-4">
                 {[
                   { href: "https://twitter.com/", icon: "fa-twitter" },
                   { href: "https://facebook.com/", icon: "fa-facebook" },
@@ -52,7 +57,7 @@ export default function Home() {
                     <i className={`fa ${icon}`} />
                   </a>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

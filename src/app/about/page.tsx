@@ -39,9 +39,9 @@ const About: NextPage = () => {
   ];
 
   const languages = [
-    { name: "English", level: "95%" },
-    { name: "Marathi", level: "90%" },
-    { name: "Hindi", level: "85%" },
+    "English",
+    "Hindi",
+    "Marathi",
   ];
 
   const interests = [
@@ -72,6 +72,17 @@ const About: NextPage = () => {
       value: "Badlapur, Thane"
     }
   ]
+  const about = [
+    {
+      title: "I am Dr. Narayan Jadhav, a Professor",
+      description : `Hi! My name is Dr. Narayan Jadhav. I am passionate and
+                    dedicated to my work, with over 11 years of experience in
+                    teaching. My specialization lies in Comparative Studies,
+                    focusing on Indian Dalit Literature and American Black
+                    Literature. I am committed to academic excellence and strive
+                    to inspire my students to reach their full potential.`
+    }
+  ]
 
   return (
     <main>
@@ -87,15 +98,10 @@ const About: NextPage = () => {
               <div className="row">
                 <div className="about-text padd-15">
                   <h2>
-                    I am Dr. Narayan Jadhav, a <span>Professor</span>
+                    {about[0].title}
                   </h2>
                   <p>
-                    Hi! My name is Dr. Narayan Jadhav. I am passionate and
-                    dedicated to my work, with over 11 years of experience in
-                    teaching. My specialization lies in Comparative Studies,
-                    focusing on Indian Dalit Literature and American Black
-                    Literature. I am committed to academic excellence and strive
-                    to inspire my students to reach their full potential.
+                    {about[0].description}
                   </p>
                 </div>
               </div>
@@ -197,19 +203,14 @@ const About: NextPage = () => {
 
                 <div className="languages padd-15">
                   <h3 className="title">Languages</h3>
-                  <div className="row">
+                  <div className="  flex flex-col">
                     {languages.map((language, index) => (
                       <div key={index} className="language-item padd-15">
-                        <h5>{language.name}</h5>
-                        <div className="progress">
-                          <div className="progress-in" style={{ width: language.level }} />
-                          <div className="skill-percent">{language.level}</div>
-                        </div>
+                        <h5>{language}</h5>
                       </div>
                     ))}
                   </div>
                 </div>
-
                 <div className="interests padd-15">
                   <h3 className="title">Interests</h3>
                   <ul>
