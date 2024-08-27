@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react";
 import type { NextPage } from "next";
+import emailjs from "@emailjs/browser";
 
 const Contact: NextPage = () => {
   const [formData, setFormData] = useState({
@@ -17,8 +18,37 @@ const Contact: NextPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // You can send the formData to your backend or API here.
-    // For example, using fetch:
+    const result = await fetch(`api/contact`, {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Authorization": process.env.NEXT_PUBLIC_API_KEY as string,
+      }
+    })
+    console.log(result);
+    const data = await result.json();
+    const message = data.message
+
+    try {
+      await emailjs
+        .sendForm('service_d5hpehs', 'template_oi2xykk', '#form','z8Dw4X9gamLOG7blh',
+        )
+        .then(
+          () => {
+            console.log('SUCCESS!');
+            alert('EMAIL Sent')
+          },
+          (error) => {
+            console.log('FAILED...', error.text);
+            // alert("error: "+error.text)
+          },
+        );
+      console.log("Form data submitted:", formData);
+      alert(message + " " + "Form Email Sent")
+    
+    } catch (e) {
+      console.log(e)
+    }
   };
 
   return (
@@ -62,7 +92,7 @@ const Contact: NextPage = () => {
           </div>
           {/* Contact Form */}
           <div className="row">
-            <form className="contact-form padd-15" onSubmit={handleSubmit}>
+            <form className="contact-form padd-15" id="form" onSubmit={handleSubmit}>
               <div className="row">
                 <div className="form-item col-6 padd-15">
                   <div className="form-group">
