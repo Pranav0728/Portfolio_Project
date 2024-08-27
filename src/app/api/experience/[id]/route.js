@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import Book from "@/models/Book";
+import Experience from "@/models/Experience";
 import connectMongoDB from "@/lib/db";
 import mongoose from "mongoose";
 import { isApiValid } from "@/lib/function";
@@ -17,7 +17,7 @@ export async function PUT(req, { params }) {
     const id = new ObjectId(params);
     const data = await req.json();
 
-    const result = await Book.findByIdAndUpdate(id, data, { new: true });
+    const result = await Experience.findByIdAndUpdate(id, data, { new: true });
     return NextResponse.json(result, { status: 200 });
   } catch (error) {
     console.log(error);
@@ -35,7 +35,7 @@ export async function DELETE(req, { params }) {
     await connectMongoDB();
     const id = new ObjectId(params);
 
-    const result = await Book.findByIdAndDelete(id);
+    const result = await Experience.findByIdAndDelete(id);
     return NextResponse.json(
       { message: "successfully deleted:", "Deleted object": result },
       { status: 200 }
@@ -57,7 +57,7 @@ export async function GET(req, { params }) {
 
     const id = new ObjectId(params);
 
-    const result = await Book.findById(id);
+    const result = await Experience.findById(id);
     return NextResponse.json(result);
   } catch (error) {
     console.log(error);

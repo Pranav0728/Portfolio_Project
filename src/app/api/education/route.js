@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-import Research from "@/models/Research";
+import Education from "@/models/Education";
 import connectMongoDB from "@/lib/db";
 import { isApiValid } from "@/lib/function";
+
 
 export async function GET(req) {
   try {
@@ -10,12 +11,13 @@ export async function GET(req) {
     if (!isApiValid(apiKey)) {
       return NextResponse.json("Unauthorized", { status: 401 });
     }
+
     await connectMongoDB();
-    const result = await Research.find();
+    const result = await Education.find();
     if (result.length > 0) {
       return NextResponse.json(result, { status: 200 });
     } else {
-      return NextResponse.json({ message: "no publications" }, { status: 200 });
+      return NextResponse.json({ message: "no Education" }, { status: 200 });
     }
   } catch (error) {
     return NextResponse.json({ message: error }, { status: 200 });
@@ -24,6 +26,7 @@ export async function GET(req) {
 
 export async function POST(req) {
   try {
+
     const apiKey = await req.headers.get("Authorization"); // Extract API key from header
 
     if (!isApiValid(apiKey)) {
@@ -32,27 +35,17 @@ export async function POST(req) {
     await connectMongoDB();
     const data = await req.json();
     const {
-      authors,
+      year,
       title,
-      journal,
-      volume,
-      monthYear,
-      referred,
-      issn,
-      level,
+      details,
     } = data;
-    await Research.create({
-      authors,
+    await Education.create({
+        year,
       title,
-      journal,
-      volume,
-      monthYear,
-      referred,
-      issn,
-      level,
+      details,
     });
     return NextResponse.json(
-      { message: "Publication Added Successfully" },
+      { message: "Education Added Successfully" },
       { status: 200 }
     );
   } catch (error) {
