@@ -2,26 +2,11 @@ import mongoose, { Schema } from "mongoose";
 
 const aboutSchema = new Schema(
   {
-    education: [{
-        year: String,
-        title: String,
-        details: String
-    }]
+    memberships: [String]
     ,
-    skills : [{
-        name: String,
-        level: String
-    }], 
-    experience: [{
-        period: String,
-        title: String,
-        details: String
-    }],
-    memberships: []
+    languages: [String]
     ,
-    languages: []
-    ,
-    interests: []
+    interests: [String]
   },
   { timestamps: true }
 );

@@ -8,7 +8,11 @@ const ResearchPublications: NextPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/research');
+        const response = await fetch('/api/research',
+          {
+            headers: {"Authorization": process.env.NEXT_PUBLIC_API_KEY as string}
+          }
+        );
         const data = await response.json();
         setResearch(data);
       } catch (error) {

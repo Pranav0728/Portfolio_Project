@@ -18,8 +18,11 @@ const personalSchema = new Schema(
     degree: {
         type: String,
     },
-    phone : {
+    phone : [{
         type: Number,
+    }],
+    address: {
+      type: String,
     },
     city: {
         type: String,

@@ -9,7 +9,11 @@ const BooksList: NextPage = () => {
   useEffect(() => {
     const fetchData = async ()=>{
       try {
-        const data = await fetch(`api/book`);
+        const data = await fetch(`api/book`,
+          {
+            headers: {"Authorization": process.env.NEXT_PUBLIC_API_KEY as string}
+          }
+        );
         const bookData = await data.json();
         setBook(bookData);
       } catch (error) {

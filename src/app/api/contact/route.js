@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import Research from "@/models/Research";
+import Contact from "@/models/Contact";
 import connectMongoDB from "@/lib/db";
 import { isApiValid } from "@/lib/function";
 
@@ -10,12 +10,13 @@ export async function GET(req) {
     if (!isApiValid(apiKey)) {
       return NextResponse.json("Unauthorized", { status: 401 });
     }
+
     await connectMongoDB();
-    const result = await Research.find();
+    const result = await Contact.find();
     if (result.length > 0) {
       return NextResponse.json(result, { status: 200 });
     } else {
-      return NextResponse.json({ message: "no publications" }, { status: 200 });
+      return NextResponse.json({ message: "No Contacts Yet" }, { status: 200 });
     }
   } catch (error) {
     return NextResponse.json({ message: error }, { status: 200 });
@@ -29,30 +30,23 @@ export async function POST(req) {
     if (!isApiValid(apiKey)) {
       return NextResponse.json("Unauthorized", { status: 401 });
     }
+
     await connectMongoDB();
     const data = await req.json();
     const {
-      authors,
-      title,
-      journal,
-      volume,
-      monthYear,
-      referred,
-      issn,
-      level,
+      name,
+      email,
+      subject,
+      message,
     } = data;
-    await Research.create({
-      authors,
-      title,
-      journal,
-      volume,
-      monthYear,
-      referred,
-      issn,
-      level,
+    await Contact.create({
+        name,
+        email,
+        subject,
+        message,
     });
     return NextResponse.json(
-      { message: "Publication Added Successfully" },
+      { message: "Your Message has been sent!" },
       { status: 200 }
     );
   } catch (error) {

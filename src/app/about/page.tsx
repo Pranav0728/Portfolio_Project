@@ -1,36 +1,92 @@
+"use client"
 import type { NextPage } from "next";
+import { useEffect, useState } from "react";
 
 const About: NextPage = () => {
-  const skills = [
-    { name: "Comparative Literature", level: "90%" },
-    { name: "Research and Analysis", level: "85%" },
-    { name: "Teaching", level: "95%" },
-    { name: "Public Speaking", level: "80%" },
-  ];
+  const [education , setEducation] = useState<any[]>([]);
+  const [experience , setExperience] = useState<any[]>([]);
+  const [Personal , setPersonal] = useState<any[]>([]);
+  const [skills , setSkills] = useState<any[]>([]);
 
-  const education = [
-    { year: "2019", title: "Ph.D. (English)", details: "SRTM University Nanded - The Phenomenal Women: A Comparative Study of the Select Poetry of Maya Angelou and Meena Kandasamy." },
-    { year: "2016", title: "M.Phil. (English)", details: "SRTM University Nanded, 70.7% - Whispering to Wisdom: A Study of Meena Kandasamy’s Touch." },
-    { year: "2012", title: "M.Ed.", details: "SRTM University Nanded, 60.80% - Philosophy and Social Foundation of Educational Psychology." },
-    { year: "2012", title: "UGC-NET (English)", details: "UGC-New Delhi - Qualified (Ugc Ref. No.43033/(NETJUNE 20 I 2))." },
-    { year: "2008", title: "B.Ed.", details: "SRTM University Nanded, 56.1% - Teacher and Edu. in Emerging Indian Society." },
-    { year: "2005", title: "M.A. (English)", details: "SRTM University Nanded, 57.75% - English Language & Literature." },
-    { year: "2002", title: "B.A.", details: "SRTM University Nanded, 52.54% - English, Sociology, Economics." },
-    { year: "1998", title: "H.S.C.", details: "CBSE New Delhi, 63.30% - English, Hindi, History, Economics, Geography." },
-    { year: "1996", title: "S.S.C.", details: "CBSE New Delhi, 59.30% - English, Marathi, Maths, Science, Social Studies." },
-  ];
+  useEffect(() => {
+    const fetchData = async ()=>{
+      try {
+        const data = await fetch(`api/skills`,
+          {
+            headers: {"Authorization": process.env.NEXT_PUBLIC_API_KEY as string}
+          }
+        );
+        const skillsData = await data.json();
+        setSkills(skillsData);
+      } catch (error) {
+        console.error('Error fetching research data:', error);
+      }
+    }
+    fetchData();
+  },[])
+  // const skills = [
+  //   { name: "Comparative Literature", level: "90%" },
+  //   { name: "Research and Analysis", level: "85%" },
+  //   { name: "Teaching", level: "95%" },
+  //   { name: "Public Speaking", level: "80%" },
+  // ];
 
-  const experience = [
-    { period: "2023 to Present", title: "Associate Professor", details: "Vasantdada Patil Pratishtan’s College of Engineering, Mumbai - Teaching Professional Communication & Ethics." },
-    { period: "July 2022 to July 2023", title: "Assistant Professor", details: "Shah & Anchor Kutchhi Engineering College, Govandi, Chembur - Professional Communication & Ethics." },
-    { period: "March 2022 to June 2022", title: "Assistant Professor", details: "Terna Engineering College, Nerul - Professional Communication & Ethics." },
-    { period: "Sept 2019 to Oct 2021", title: "Assistant Professor", details: "AMANCS College, Ratnagiri - English Literature & Communication Skills." },
-    { period: "June 2013 to July 2018", title: "Assistant Professor", details: "Kai.Nivrutirao Patil Jawalgaonkar Mahavidyalaya, Nanded - English Language and Literature & Communication Skills." },
-    { period: "Dec 2012 to Feb 2013", title: "Assistant Professor", details: "Rajiv Gandhi College of CS and Management, Nanded - Communication Skills." },
-    { period: "Oct 2009 to July 2012", title: "Lecturer", details: "SSCR DEd College, Londhesangavi, Nanded - English Methodology, Educational Psychology, Educational IT." },
-    { period: "Nov 2008 to Mar 2009", title: "Lecturer", details: "Balaji College of Education, Toranjgaon, Yeola, Nasik - English Methodology, Communication Skills, Educational Psychology." },
-    { period: "July 2007 to Oct 2008", title: "Lecturer", details: "SSCR DEd College, Londhesangavi, Nanded - English Methodology, Educational Psychology, Educational IT." },
-  ];
+  // const education = [
+  //   { year: "2019", title: "Ph.D. (English)", details: "SRTM University Nanded - The Phenomenal Women: A Comparative Study of the Select Poetry of Maya Angelou and Meena Kandasamy." },
+  //   { year: "2016", title: "M.Phil. (English)", details: "SRTM University Nanded, 70.7% - Whispering to Wisdom: A Study of Meena Kandasamy’s Touch." },
+  //   { year: "2012", title: "M.Ed.", details: "SRTM University Nanded, 60.80% - Philosophy and Social Foundation of Educational Psychology." },
+  //   { year: "2012", title: "UGC-NET (English)", details: "UGC-New Delhi - Qualified (Ugc Ref. No.43033/(NETJUNE 20 I 2))." },
+  //   { year: "2008", title: "B.Ed.", details: "SRTM University Nanded, 56.1% - Teacher and Edu. in Emerging Indian Society." },
+  //   { year: "2005", title: "M.A. (English)", details: "SRTM University Nanded, 57.75% - English Language & Literature." },
+  //   { year: "2002", title: "B.A.", details: "SRTM University Nanded, 52.54% - English, Sociology, Economics." },
+  //   { year: "1998", title: "H.S.C.", details: "CBSE New Delhi, 63.30% - English, Hindi, History, Economics, Geography." },
+  //   { year: "1996", title: "S.S.C.", details: "CBSE New Delhi, 59.30% - English, Marathi, Maths, Science, Social Studies." },
+  // ];
+  useEffect(() => {
+    const fetchData = async ()=>{
+      try {
+        const data = await fetch(`api/education`,
+          {
+            headers: {"Authorization": process.env.NEXT_PUBLIC_API_KEY as string}
+          }
+        );
+        const educationData = await data.json();
+        setEducation(educationData);
+      } catch (error) {
+        console.error('Error fetching research data:', error);
+      }
+    }
+    fetchData();
+  },[])
+
+  useEffect(() => {
+    const fetchData = async ()=>{
+      try {
+        const data = await fetch(`api/experience`,
+          {
+            headers: {"Authorization": process.env.NEXT_PUBLIC_API_KEY as string}
+          }
+        );
+        const experienceData = await data.json();
+        setExperience(experienceData);
+      } catch (error) {
+        console.error('Error fetching research data:', error);
+      }
+    }
+    fetchData();
+  },[])
+
+  // const experience = [
+  //   { period: "2023 to Present", title: "Associate Professor", details: "Vasantdada Patil Pratishtan’s College of Engineering, Mumbai - Teaching Professional Communication & Ethics." },
+  //   { period: "July 2022 to July 2023", title: "Assistant Professor", details: "Shah & Anchor Kutchhi Engineering College, Govandi, Chembur - Professional Communication & Ethics." },
+  //   { period: "March 2022 to June 2022", title: "Assistant Professor", details: "Terna Engineering College, Nerul - Professional Communication & Ethics." },
+  //   { period: "Sept 2019 to Oct 2021", title: "Assistant Professor", details: "AMANCS College, Ratnagiri - English Literature & Communication Skills." },
+  //   { period: "June 2013 to July 2018", title: "Assistant Professor", details: "Kai.Nivrutirao Patil Jawalgaonkar Mahavidyalaya, Nanded - English Language and Literature & Communication Skills." },
+  //   { period: "Dec 2012 to Feb 2013", title: "Assistant Professor", details: "Rajiv Gandhi College of CS and Management, Nanded - Communication Skills." },
+  //   { period: "Oct 2009 to July 2012", title: "Lecturer", details: "SSCR DEd College, Londhesangavi, Nanded - English Methodology, Educational Psychology, Educational IT." },
+  //   { period: "Nov 2008 to Mar 2009", title: "Lecturer", details: "Balaji College of Education, Toranjgaon, Yeola, Nasik - English Methodology, Communication Skills, Educational Psychology." },
+  //   { period: "July 2007 to Oct 2008", title: "Lecturer", details: "SSCR DEd College, Londhesangavi, Nanded - English Methodology, Educational Psychology, Educational IT." },
+  // ];
 
   const memberships = [
     "Executive Member of MES’s Swami Vivekanand Senior College, Mantha",
@@ -50,28 +106,45 @@ const About: NextPage = () => {
     "Public Speaking",
     "Traveling"
   ];
-  const Personal = [
-    {
-      name: "Name",
-      value: "Dr. Narayan Jadhav",
-    },
-    {
-      name : "Email",
-      value: "njadhav34@gmail.com"
-    },
-    {
-      name : "Degree",
-      value: "Ph.D. in English"
-    },
-    {
-      name: "Phone",
-      value: "+91 9763091564"
-    },
-    {
-      name: "City",
-      value: "Badlapur, Thane"
+  // const Personal = [
+  //   {
+  //     name: "Name",
+  //     value: "Dr. Narayan Jadhav",
+  //   },
+  //   {
+  //     name : "Email",
+  //     value: "njadhav34@gmail.com"
+  //   },
+  //   {
+  //     name : "Degree",
+  //     value: "Ph.D. in English"
+  //   },
+  //   {
+  //     name: "Phone",
+  //     value: "+91 9763091564"
+  //   },
+  //   {
+  //     name: "City",
+  //     value: "Badlapur, Thane"
+  //   }
+  // ]
+  useEffect(() => {
+    const fetchData = async ()=>{
+      try {
+        const data = await fetch(`api/personal`,
+          {
+            headers: {"Authorization": process.env.NEXT_PUBLIC_API_KEY as string}
+          }
+        );
+        const personalData = await data.json();
+        setPersonal(personalData);
+      } catch (error) {
+        console.error('Error fetching research data:', error);
+      }
     }
-  ]
+    fetchData();
+  },[])
+
   const about = [
     {
       title: "I am Dr. Narayan Jadhav, a Professor",
@@ -108,15 +181,18 @@ const About: NextPage = () => {
               <div className=" timeline newrow flex justify-center rounded-xl pb-10" >
                 <div className="  personal-info ">
                   <div className="row  flex flex-col">
-                      {Personal.map((pers, index)=>(
+                  {Personal.map((user) => (
                     <div className="info-item padd-15 boder-[white]">
-                        <div key={index}>
-                          <p>
-                            {pers.name}: <span>{pers.value}</span>
-                          </p>
-                        </div>
-                    </div>
-                      ))}
+                          <li key={user._id}>
+                            <h2>Name: {user.name}</h2>
+                            <p>Degree: {user.degree}</p>
+                            <p>Email: {user.email}</p>
+                            <p>Address{user.address}</p>
+                            <p>City: {user.city}</p>
+                            <p>{user.phone.join(",")}</p>
+                          </li>
+                          </div>
+                        ))}
                   </div>
                   <div className="row">
                     <div className="buttons padd-15">
