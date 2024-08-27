@@ -35,7 +35,7 @@ import User from "@/models/User";
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: "/",
+    signIn: "/adminlogin",
   },
 };
 

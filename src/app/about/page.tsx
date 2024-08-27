@@ -1,4 +1,5 @@
 "use client"
+import Sidebar from "@/components/sidebar/sidebar";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 
@@ -106,6 +107,17 @@ const About: NextPage = () => {
     "Public Speaking",
     "Traveling"
   ];
+  const about = [
+    {
+      title: "I am Dr. Narayan Jadhav, a Professor",
+      description : `Hi! My name is Dr. Narayan Jadhav. I am passionate and
+                    dedicated to my work, with over 11 years of experience in
+                    teaching. My specialization lies in Comparative Studies,
+                    focusing on Indian Dalit Literature and American Black
+                    Literature. I am committed to academic excellence and strive
+                    to inspire my students to reach their full potential.`
+    }
+  ]
   // const Personal = [
   //   {
   //     name: "Name",
@@ -145,20 +157,11 @@ const About: NextPage = () => {
     fetchData();
   },[])
 
-  const about = [
-    {
-      title: "I am Dr. Narayan Jadhav, a Professor",
-      description : `Hi! My name is Dr. Narayan Jadhav. I am passionate and
-                    dedicated to my work, with over 11 years of experience in
-                    teaching. My specialization lies in Comparative Studies,
-                    focusing on Indian Dalit Literature and American Black
-                    Literature. I am committed to academic excellence and strive
-                    to inspire my students to reach their full potential.`
-    }
-  ]
+
 
   return (
     <main>
+      <Sidebar />
       <section className="about section" id="about">
         <div className="container flex flex-col ">
           <div className="row">
@@ -178,24 +181,23 @@ const About: NextPage = () => {
                   </p>
                 </div>
               </div>
-              <div className=" timeline newrow flex justify-center rounded-xl pb-10" >
-                <div className="  personal-info ">
-                  <div className="row  flex flex-col">
+              <div className=" timeline newrow flex justify-center rounded-xl p-10 md:flex-row flex-col h-auto" >
+                <div className="  personal-info h-auto">
+                  <div className="flex flex-col">
                   {Personal.map((user) => (
-                    <div className="info-item padd-15 boder-[white]">
-                          <li key={user._id}>
-                            <h2>Name: {user.name}</h2>
+                    <div className="info-item border-[white]">
+                          <div key={user._id} className="gap-2">
+                            <p>Name: {user.name}</p>
                             <p>Degree: {user.degree}</p>
                             <p>Email: {user.email}</p>
-                            <p>Address{user.address}</p>
                             <p>City: {user.city}</p>
                             <p>{user.phone.join(",")}</p>
-                          </li>
+                          </div>
                           </div>
                         ))}
                   </div>
-                  <div className="row">
-                    <div className="buttons padd-15">
+                  <div className="row flex justify-center items-center">
+                    <div className="buttons ">
                       <a
                         href="/assets/Resume.pdf"
                         target="_target"
@@ -213,10 +215,10 @@ const About: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="skills padd-15">
+                <div className="skills">
                   <div className="row">
                     {skills.map((skill, index) => (
-                      <div key={index} className="skill-item padd-15">
+                      <div key={index} className="skill-item">
                         <h5>{skill.name}</h5>
                         <div className="progress">
                           <div className="progress-in" style={{ width: skill.level }} />
@@ -272,7 +274,7 @@ const About: NextPage = () => {
                   <h3 className="title">Memberships</h3>
                   <ul>
                     {memberships.map((membership, index) => (
-                      <li key={index}>{membership}</li>
+                      <p key={index}>{membership}</p>
                     ))}
                   </ul>
                 </div>
@@ -282,7 +284,7 @@ const About: NextPage = () => {
                   <div className="  flex flex-col">
                     {languages.map((language, index) => (
                       <div key={index} className="language-item padd-15">
-                        <h5>{language}</h5>
+                        <p>{language}</p>
                       </div>
                     ))}
                   </div>
@@ -291,7 +293,7 @@ const About: NextPage = () => {
                   <h3 className="title">Interests</h3>
                   <ul>
                     {interests.map((interest, index) => (
-                      <li key={index}>{interest}</li>
+                      <p  key={index}>{interest}</p>
                     ))}
                   </ul>
                 </div>

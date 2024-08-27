@@ -11,9 +11,9 @@ import ThemeSwitch from "@/components/panel/ThemeSwitch";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Folio the best Portfolio or Personal Website",
+  title: "Narayan Jadhav - portfolio",
   description:
-    "Folio is the best portfolio or personal website for developer, creator or businessman.",
+    "",
 };
 
 export default function RootLayout({
@@ -32,7 +32,6 @@ export default function RootLayout({
           {/* Temporary for Banner */}
           <div className="temp-layout">
             <ThemeSwitch />
-            <Sidebar />
             {children}
           </div>
         </Providers>

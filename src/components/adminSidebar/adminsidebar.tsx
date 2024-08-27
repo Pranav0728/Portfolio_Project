@@ -1,5 +1,6 @@
 "use client";
 
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -25,47 +26,50 @@ const Sidebar = () => {
         <div className="logo">
           <Link href="/admin" onClick={handleClose}>
             <p>Dr. Narayan Jadhav</p>
-          </Link>
+          </Link> 
         </div>
         <ul className="nav">
           <li onClick={handleClose}>
-            <Link href="/" className={`${pathUrl == "/" && "active"}`}>
+            <Link href="/admin" className={`${pathUrl == "/admin" && "active"}`}>
               <i className="fa fa-home" /> Home
             </Link>
           </li>
           <li onClick={handleClose}>
             <Link
-              href="/about"
-              className={`${pathUrl == "/about" && "active"}`}
+              href="/admin/about"
+              className={`${pathUrl == "/admin/about" && "active"}`}
             >
               <i className="fa fa-user" /> About
             </Link>
           </li>
           <li onClick={handleClose}>
             <Link
-              href="/Research"
-              className={`${pathUrl == "/Research" && "active"}`}
+              href="/admin/Research"
+              className={`${pathUrl == "/admin/Research" && "active"}`}
             >
               <i className="fa fa-list" /> Research Publications
             </Link>
           </li>
           <li onClick={handleClose}>
             <Link
-              href="/Books"
-              className={`${pathUrl == "/Books" && "active"}`}
+              href="/admin/Books"
+              className={`${pathUrl == "/admin/Books" && "active"}`}
             >
               <i className="fa fa-briefcase" /> Books
             </Link>
           </li>
           <li onClick={handleClose}>
             <Link
-              href="/contact"
-              className={`${pathUrl == "/contact" && "active"}`}
+              href="/admin/contact"
+              className={`${pathUrl == "/admin/contact" && "active"}`}
             >
               <i className="fa fa-comments" /> Contact
             </Link>
           </li>
         </ul>
+      <div>
+        <button onClick={()=>signOut()}>Sign Out</button>
+      </div>
       </div>
     </aside>
   );

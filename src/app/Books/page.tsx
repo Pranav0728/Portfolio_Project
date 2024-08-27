@@ -1,4 +1,5 @@
 "use client"
+import Sidebar from "@/components/sidebar/sidebar";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 
@@ -24,6 +25,7 @@ const BooksList: NextPage = () => {
   },[])
   return (
     <main>
+      <Sidebar />
       <section className="books-list about section" id="about">
         <div className="container">
           <div className="section-title padd-15">
@@ -33,7 +35,7 @@ const BooksList: NextPage = () => {
           <div className="row"> 
           <div className="about-content timeline  padd-15 flex flex-col gap-5">
             {book.map((book) => (
-              <div key={book.srNo} className=" timeline  p-5 flex flex-col gap-1" >
+              <div key={book._id} className=" timeline  p-5 flex flex-col gap-1" >
                 <h3 className=" rounded-lg text-white font-bold text-[1.5rem] w-full">{book.title}</h3>
                 <p><strong>Author:</strong> {book.author}</p>
                 <p><strong>Publisher:</strong> {book.publisher}</p>

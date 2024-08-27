@@ -1,5 +1,10 @@
+"use client"
+import Sidebar from '@/components/sidebar/sidebar';
 import { Lobster, Rokkitt, Oswald, Courgette } from 'next/font/google';
 import Image from 'next/image';
+import { useEffect, useState } from'react';
+
+
 // Font Families
 const lobster = Lobster({ 
   subsets: ['latin'],
@@ -24,19 +29,42 @@ const courgette = Courgette({
   preload: false,
 });
 
-const Personal = {
-  img: "/imgs/Profile.png",
-  name: "Dr. Narayan Jadhav",
-  clg: "Professor at Vppceo & VA"
-}
+// const Personal = {
+//   img: "/imgs/Profile.png",
+//   name: "Dr. Narayan Jadhav",
+//   clg: "Professor at Vppceo & VA"
+// }
+
 export default function Home() {
+  
+  const img = "/imgs/Profile.png"
+  const [Personal, setPersonalData] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetch(`api/personal`, {
+          headers: { "Authorization": process.env.NEXT_PUBLIC_API_KEY as string }
+        });
+        const fetchedData = await data.json();
+        setPersonalData(fetchedData);
+      } catch (error) {
+        console.error('Error fetching personal data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
+    <main>
+      <Sidebar/>
     <main className="min-h-screen bg-gray-100 " id="about">
       <section className="home section flex justify-center items-center py-20" id="home">
         <div className="container flex gap-5 justify-center items-center">
+        {Personal.map((user) => (
           <div className="intro flex gap-5">
             <Image
-              src={Personal.img}
+              src={img}
               alt="Profile of Dr. Narayan Jadhav"
               className="shadow-dark rounded-full w-48 h-48 object-cover"
               loading="lazy"
@@ -44,8 +72,8 @@ export default function Home() {
               height={200}
             />
             <div className="flex flex-col items-center justify-center">
-              <h1 className={`text-[4rem] text-black ${lobster.className}`}>{Personal.name}</h1>
-              <p className={`text-[2rem] mt-2 ${courgette.className}`}>{Personal.clg}</p>
+              <h1 className={`text-[4rem] text-black ${lobster.className}`}>{user.name}</h1>
+              <p className={`text-[2rem] mt-2 ${courgette.className}`}>{user.subHeader}</p>
             
               {/* <div className="social-links flex gap-3 mt-4">
                 {[
@@ -62,8 +90,10 @@ export default function Home() {
               </div> */}
             </div>
           </div>
+        ))}
         </div>
       </section>
+    </main>
     </main>
   );
 }
