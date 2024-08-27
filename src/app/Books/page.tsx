@@ -1,65 +1,23 @@
 "use client"
 import type { NextPage } from "next";
+import { useEffect, useState } from "react";
 
 const BooksList: NextPage = () => {
-  const books = [
-    {
-      srNo: 1,
-      author: "Dr. Narayan Laxman Jadhav",
-      publisher: "Dnyanjyoti Prakashan, 311/3, Sasanenagar, Hadapsar, Pune -411028",
-      position: "Sole Author",
-      title: "New Perspectives of Black Literature and Dalit Literature",
-      year: "June 2020",
-      referred: "Referred",
-      isbn: "ISBN 978-81-946242-1-9",
-      level: "National",
-    },
-    {
-      srNo: 2,
-      author: "Dr. Narayan Laxman Jadhav",
-      publisher: "Dnyanjyoti Prakashan, 311/3, Sasanenagar, Hadapsar, Pune -411028",
-      position: "Sole Author",
-      title: "Dalit Negligence: A Gift of 21st Century",
-      year: "June 2020",
-      referred: "Referred",
-      isbn: "ISBN 978-81-946242-2-6",
-      level: "National",
-    },
-    {
-      srNo: 3,
-      author: "Dr. Narayan Laxman Jadhav",
-      publisher: "Dnyanjyoti Prakashan, 311/3, Sasanenagar, Hadapsar, Pune -411028",
-      position: "Sole Author",
-      title: "The Phenomenal Women: A Comparative Analysis of Maya Angelou's & Meena Kandasamy's Poetry",
-      year: "June 2020",
-      referred: "Referred",
-      isbn: "ISBN 978-81-946242-3-3",
-      level: "National",
-    },
-    {
-      srNo: 4,
-      author: "Dr. Narayan Laxman Jadhav",
-      publisher: "Dnyanjyoti Prakashan, 311/3, Sasanenagar, Hadapsar, Pune -411028",
-      position: "Sole Author",
-      title: "Meena Kandasamy's Whispering (Against Caste Discriminations, Patriarchy through Poems)",
-      year: "June 2020",
-      referred: "Referred",
-      isbn: "ISBN 978-81-946242-4-0",
-      level: "National",
-    },
-    {
-      srNo: 5,
-      author: "Dr. Narayan Laxman Jadhav",
-      publisher: "Dnyanjyoti Prakashan, 311/3, Sasanenagar, Hadapsar, Pune -411028",
-      position: "Sole Author",
-      title: "BLANE (One Act Play)",
-      year: "June 2020",
-      referred: "Referred",
-      isbn: "ISBN 978-81-946242-5-7",
-      level: "National",
-    },
-  ];
 
+  const [book , setBook] = useState<any[]>([]);
+  
+  useEffect(() => {
+    const fetchData = async ()=>{
+      try {
+        const data = await fetch(`api/book`);
+        const bookData = await data.json();
+        setBook(bookData);
+      } catch (error) {
+        console.error('Error fetching research data:', error);
+      }
+    }
+    fetchData();
+  },[])
   return (
     <main>
       <section className="books-list about section" id="about">
@@ -70,7 +28,7 @@ const BooksList: NextPage = () => {
           </div>
           <div className="row"> 
           <div className="about-content timeline  padd-15 flex flex-col gap-5">
-            {books.map((book) => (
+            {book.map((book) => (
               <div key={book.srNo} className=" timeline  p-5 flex flex-col gap-1" >
                 <h3 className=" rounded-lg text-white font-bold text-[1.5rem] w-full">{book.title}</h3>
                 <p><strong>Author:</strong> {book.author}</p>
