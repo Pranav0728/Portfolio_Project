@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.4",
     "next": "14.0.4",
+    "next-auth": "^4.24.7",
     "next-themes": "^0.2.1",
     "nextjs-toploader": "^1.6.4",
     "react": "^18",
