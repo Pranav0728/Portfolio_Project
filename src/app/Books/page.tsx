@@ -9,6 +9,7 @@ const BooksList: NextPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+    const fetchData = async () => {
       try {
         const data = await fetch(`api/book`, {
           headers: { Authorization: process.env.NEXT_PUBLIC_API_KEY as string },
@@ -37,10 +38,14 @@ const BooksList: NextPage = () => {
     fetchData();
   }, []);
 
+  }, []);
+
   return (
     <main>
-      <Sidebar />
-      <section className="books-list about section" id="about">
+      <section
+        className="research-publications section"
+        id="research-publications"
+      >
         <div className="container">
           <div className="section-title padd-15">
             {/* Book List */}
@@ -113,4 +118,4 @@ const BooksList: NextPage = () => {
   );
 };
 
-export default BooksList;
+export default ResearchPublications;
