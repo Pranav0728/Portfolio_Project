@@ -194,9 +194,18 @@ const About: NextPage = () => {
           <div className="row">
             <div className="about-content padd-15 flex gap-10 flex-col">
               <div className="row">
-              <div className="about-text padd-15">
-                  <h2>{aboutData.title}</h2>
-                  <p>{aboutData.description}</p>
+                <div className="about-text padd-15">
+                  <h2>
+                    I am Dr. Narayan Jadhav, a <span>Professor</span>
+                  </h2>
+                  <p>
+                    Hi! My name is Dr. Narayan Jadhav. I am passionate and
+                    dedicated to my work, with over 11 years of experience in
+                    teaching. My specialization lies in Comparative Studies,
+                    focusing on Indian Dalit Literature and American Black
+                    Literature. I am committed to academic excellence and strive
+                    to inspire my students to reach their full potential.
+                  </p>
                 </div>
               </div>
               <div className=" timeline newrow flex justify-center rounded-xl p-10 md:flex-row flex-col h-auto" >

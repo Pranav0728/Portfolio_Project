@@ -67,6 +67,7 @@ const ResearchPublications: NextPage = () => {
               </div>
             ))}
           </div>
+          </div> 
         </div>
       </section>
     </main>

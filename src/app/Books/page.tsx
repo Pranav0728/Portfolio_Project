@@ -46,6 +46,7 @@ const BooksList: NextPage = () => {
                 <p><strong>Level:</strong> {book.level}</p>
                 <br />
               </div>
+              </div>
               
             ))}
           </div>
