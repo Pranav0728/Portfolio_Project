@@ -29,6 +29,7 @@ const ResearchPublications: NextPage = () => {
         className="research-publications section"
         id="research-publications"
       >
+        <div>
         <div className="container">
           <div className="section-title padd-15">
             <h2>Research Publications in Journals</h2>
