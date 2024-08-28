@@ -2,6 +2,9 @@ import mongoose, { Schema } from "mongoose";
 
 const aboutSchema = new Schema(
   {
+    title: { 
+      type: String
+    },
     description: {
       type: String
     },

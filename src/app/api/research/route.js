@@ -11,7 +11,7 @@ export async function GET(req) {
       return NextResponse.json("Unauthorized", { status: 401 });
     }
     await connectMongoDB();
-    const result = await Research.find();
+    const result = await Research.find().sort({ _id: -1 }).exec();
     if (result.length > 0) {
       return NextResponse.json(result, { status: 200 });
     } else {

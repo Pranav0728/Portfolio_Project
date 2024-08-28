@@ -13,7 +13,7 @@ export async function GET(req) {
     }
 
     await connectMongoDB();
-    const result = await Education.find();
+    const result = await Education.find().sort({ _id: -1 }).exec();
     if (result.length > 0) {
       return NextResponse.json(result, { status: 200 });
     } else {

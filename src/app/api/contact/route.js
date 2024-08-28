@@ -12,7 +12,7 @@ export async function GET(req) {
     }
 
     await connectMongoDB();
-    const result = await Contact.find();
+    const result = await Contact.find().sort({ _id: -1 }).exec();
     if (result.length > 0) {
       return NextResponse.json(result, { status: 200 });
     } else {
