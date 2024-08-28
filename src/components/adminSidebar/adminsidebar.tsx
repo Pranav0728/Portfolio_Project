@@ -31,15 +31,23 @@ const Sidebar = () => {
         <ul className="nav">
           <li onClick={handleClose}>
             <Link href="/admin" className={`${pathUrl == "/admin" && "active"}`}>
-              <i className="fa fa-home" /> Home
+              <i className="fa fa-home" /> Personal
             </Link>
           </li>
           <li onClick={handleClose}>
             <Link
-              href="/admin/about"
-              className={`${pathUrl == "/admin/about" && "active"}`}
+              href="/admin/education"
+              className={`${pathUrl == "/admin/education" && "active"}`}
             >
-              <i className="fa fa-user" /> About
+              <i className="fa fa-user" /> Education
+            </Link>
+          </li>
+          <li onClick={handleClose}>
+            <Link
+              href="/admin/experience"
+              className={`${pathUrl == "/admin/experience" && "active"}`}
+            >
+              <i className="fa fa-user" /> Experience
             </Link>
           </li>
           <li onClick={handleClose}>

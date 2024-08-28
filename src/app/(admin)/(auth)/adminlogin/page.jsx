@@ -12,13 +12,11 @@ export default function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const res = await signIn("credentials", {
       email,
       password,
       redirect: false,
     });
-
     if (res.error) {
       setError(res.error);
     } else {

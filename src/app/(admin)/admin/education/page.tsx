@@ -117,7 +117,7 @@ export default function EducationPage() {
       <Sidebar />
       <section className="about section" id="about">
       <section className="min-h-screen p-10" >
-        <h1 className="text-3xl font-bold mb-8">Manage Education Records</h1>
+        <h1 className="text-3xl font-bold">Manage Education Records</h1>
         <div className="container flex flex-col gap-6">
           
           {/* Add New Record Form */}

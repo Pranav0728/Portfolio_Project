@@ -74,13 +74,13 @@ export default function AdminPage() {
                 <div key={user._id} className="admin-item flex flex-col gap-5  border-b-2 pb-5">
                   <h1 className='text-3xl'>Personal Information</h1>
                   <div className="flex flex-col">
-                    <h1 className='text-2xl font-bold'>Name: {user.name}</h1>
-                    <p className='text-lg mt-1'><span className='font-bold'>SubHeader: </span>{user.subHeader}</p>
-                    <p className='text-lg mt-1'><span className='font-bold'>Degree: </span>{user.degree}</p>
-                    <p className='text-lg mt-1'><span className='font-bold'>Email: </span>{user.email}</p>
-                    <p className='text-lg mt-1'><span className='font-bold'>Phone: </span>{user.phone.join(', ')}</p>
-                    <p className='text-lg mt-1'><span className='font-bold'>Address: </span>{user.address}</p>
-                    <p className='text-lg mt-1'><span className='font-bold'>City: </span>{user.city}</p>
+                    <p className='text-lg mt-1 border-b p-2'><span className='font-bold'>Name: </span>{user.name}</p>
+                    <p className='text-lg mt-1 border-b p-2'><span className='font-bold'>SubHeader: </span>{user.subHeader}</p>
+                    <p className='text-lg mt-1 border-b p-2'><span className='font-bold'>Degree: </span>{user.degree}</p>
+                    <p className='text-lg mt-1 border-b p-2'><span className='font-bold'>Email: </span>{user.email}</p>
+                    <p className='text-lg mt-1 border-b p-2'><span className='font-bold'>Phone: </span>{user.phone.join(', ')}</p>
+                    <p className='text-lg mt-1 border-b p-2'><span className='font-bold'>Address: </span>{user.address}</p>
+                    <p className='text-lg mt-1 border-b p-2'><span className='font-bold'>City: </span>{user.city}</p>
                   </div>
                   <div className="ml-auto flex gap-3">
                     <button

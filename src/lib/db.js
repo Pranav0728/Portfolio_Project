@@ -19,12 +19,10 @@ async function connectMongoDB() {
   }
 
   if (!cachedClient.promise) {
-
     cachedClient.promise = mongoose.connect(MONGO_URI).then((mongoose) => {
       return mongoose;
     });
   }
-
   cachedClient.conn = await cachedClient.promise;
   return cachedClient.conn;
 }
