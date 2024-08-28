@@ -476,8 +476,8 @@ align-items: center;
   color: white;
 }
 .about .about-content .about-text {
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 22%;
   max-width: 100%;
   color: white;
 }
@@ -489,7 +489,12 @@ align-items: center;
   color: white;
 }
 
-
+.about .about-content .about-text  {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #302e4d;
+}
 .about .about-content .about-text h2 {
   font-size: 24px;
   margin-bottom: 15px;
