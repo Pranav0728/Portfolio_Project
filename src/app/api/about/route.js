@@ -41,7 +41,7 @@ export async function PUT(req) {
     await connectMongoDB();
 
     const data = await req.json();
-    const { memberships, languages, interests } = data;
+    const { memberships, languages, interests, description } = data;
     await About.findOneAndUpdate(
       {},
       {
@@ -49,6 +49,7 @@ export async function PUT(req) {
           memberships,
           languages,
           interests,
+          description
         },
       }, {
         upsert: true, new: true, setDefaultsOnInsert: true
