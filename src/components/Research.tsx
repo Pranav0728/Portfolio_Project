@@ -68,9 +68,10 @@ const ResearchPublications: NextPage = () => {
               </div>
             ))}
           </div>
-          </div> 
-          </section>
-          </main>
+         </div>
+         </div>
+         </section>
+         </main>
   );
 };
 

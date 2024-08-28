@@ -163,32 +163,55 @@ const About: NextPage = () => {
                 </div>
 
                 <div className="row">
-                  <div className="memberships padd-15">
-                    <h3 className="title">Memberships</h3>
-                    <ul>
-                      {aboutData.memberships.map((membership, index) => (
-                        <p key={index}>{membership}</p>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="languages padd-15">
-                    <h3 className="title">Languages</h3>
-                    <div className="flex flex-col">
-                      {aboutData.languages.map((language, index) => (
-                        <div key={index} className="language-item padd-15">
-                          <p>{language}</p>
-                        </div>
-                      ))}
+                <div className="education padd-15">
+                  <h3 className="title">Memberships</h3>
+                  <div className="row">
+                    <div className="timeline-box padd-15">
+                      <div className="timeline shadow-dark">
+                        {aboutData.memberships.map((membership, index) => (
+                          <div key={index} className="timeline-item">
+                            <div className="circle-dot" />
+                           
+                            <p className="timeline-text" key={index}>{membership}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                  <div className="interests padd-15">
-                    <h3 className="title">Interests</h3>
-                    <ul>
-                      {aboutData.interests.map((interest, index) => (
-                        <p key={index}>{interest}</p>
-                      ))}
-                    </ul>
+                </div>
+                <div className="education padd-15">
+                  <h3 className="title">Languages</h3>
+                  <div className="row">
+                    <div className="timeline-box padd-15">
+                      <div className="timeline shadow-dark">
+                        {aboutData.languages.map((language, index) => (
+                          <div key={index} className="timeline-item">
+                            <div className="circle-dot" />
+                           
+                            <p className="timeline-text" key={index}>{language}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
+                </div>
+                <div className="education padd-15">
+                  <h3 className="title">interests</h3>
+                  <div className="row">
+                    <div className="timeline-box padd-15">
+                      <div className="timeline shadow-dark">
+                        {aboutData.interests.map((interests, index) => (
+                          <div key={index} className="timeline-item">
+                            <div className="circle-dot" />
+                           
+                            <p className="timeline-text" key={index}>{interests}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
                 </div>
 
                 <div className="row">
