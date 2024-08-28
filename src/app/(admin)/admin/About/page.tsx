@@ -71,7 +71,7 @@ export default function AboutPage() {
         alert("Failed to update about section");
       }
     } catch (error) {
-      console.error("Error updating about section:", error);
+      console.error("Error updating about :", error);
     }
   };
 
