@@ -1,60 +1,76 @@
 "use client"
-import Sidebar from "@/components/sidebar/sidebar";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 
-const BooksList: NextPage = () => {
+const ResearchPublications: NextPage = () => {
+  const [research, setResearch] = useState<any[]>([]);
 
-  const [book , setBook] = useState<any[]>([]);
-  
   useEffect(() => {
-    const fetchData = async ()=>{
+    const fetchData = async () => {
       try {
-        const data = await fetch(`api/book`,
+        const response = await fetch('/api/research',
           {
             headers: {"Authorization": process.env.NEXT_PUBLIC_API_KEY as string}
           }
         );
-        const bookData = await data.json();
-        setBook(bookData);
+        const data = await response.json();
+        setResearch(data);
       } catch (error) {
         console.error('Error fetching research data:', error);
       }
-    }
+    };
+
     fetchData();
-  },[])
+  }, []);
+
   return (
     <main>
-      <Sidebar />
-      <section className="books-list about section" id="about">
+      <section
+        className="research-publications section"
+        id="research-publications"
+      >
         <div className="container">
           <div className="section-title padd-15">
-            {/* Book List  */}
-            <h2>Books List</h2>
+            <h2>Research Publications in Journals</h2>
           </div>
-          <div className="row"> 
-          <div className="about-content timeline  padd-15 flex flex-col gap-5">
-            {book.map((book) => (
-              <div key={book._id} className=" timeline  p-5 flex flex-col gap-1" >
-                <h3 className=" rounded-lg text-white font-bold text-[1.5rem] w-full">{book.title}</h3>
-                <p><strong>Author:</strong> {book.author}</p>
-                <p><strong>Publisher:</strong> {book.publisher}</p>
-                <p><strong>Position:</strong> {book.position}</p>
-                <p><strong>Year of Publication:</strong> {book.year}</p>
-                <p><strong>Referred:</strong> {book.referred}</p>
-                <p><strong>ISBN/ISSN No.:</strong> {book.isbn}</p>
-                <p><strong>Level:</strong> {book.level}</p>
+          <div className="about-content timeline flex flex-col gap-5">
+            {research.map((pub: any, index: number) => (
+              <div
+                key={index}
+                className="about-content timeline rounded-lg p-5 flex flex-col gap-1"
+              >
+                <h4 className="title rounded-lg text-white font-bold text-[1.5rem] w-full">
+                  {pub.title}
+                </h4>
+                <h2>
+                  <strong>Authors:</strong> {pub.authors}
+                </h2>
+                <h2>
+                  <strong>Journal:</strong> {pub.journal}
+                </h2>
+                <h2>
+                  <strong>Volume:</strong> {pub.volume}
+                </h2>
+                <h2>
+                  <strong>Month/Year:</strong> {pub.monthYear}
+                </h2>
+                <h2>
+                  <strong>Referred:</strong> {pub.referred}
+                </h2>
+                <h2>
+                  <strong>ISSN:</strong> {pub.issn}
+                </h2>
+                <h2>
+                  <strong>Level:</strong> {pub.level}
+                </h2>
                 <br />
               </div>
-              </div>
-              
             ))}
           </div>
-          </div>
-        </div>
-      </section>
-    </main>
+          </div> 
+          </section>
+          </main>
   );
 };
 
-export default BooksList;
+export default ResearchPublications;
