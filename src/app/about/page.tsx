@@ -8,6 +8,13 @@ const About: NextPage = () => {
   const [experience , setExperience] = useState<any[]>([]);
   const [Personal , setPersonal] = useState<any[]>([]);
   const [skills , setSkills] = useState<any[]>([]);
+  const [aboutData, setAboutData] = useState({
+    title: "",
+    memberships: [],
+    languages: [],
+    interests: [],
+    description: "",
+  });
 
   useEffect(() => {
     const fetchData = async ()=>{
@@ -89,35 +96,50 @@ const About: NextPage = () => {
   //   { period: "July 2007 to Oct 2008", title: "Lecturer", details: "SSCR DEd College, Londhesangavi, Nanded - English Methodology, Educational Psychology, Educational IT." },
   // ];
 
-  const memberships = [
-    "Executive Member of MES’s Swami Vivekanand Senior College, Mantha",
-    "Member of Pune University English Teachers’ Association",
-    "Member of Dr. Babasaheb Ambedkar Marathwada University English Teachers’ Association"
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`api/about`, {
+          headers: { "Authorization": process.env.NEXT_PUBLIC_API_KEY as string },
+        });
+        const data = await response.json();
+        setAboutData(data[0]); // Assuming the API returns an array with a single document
+      } catch (error) {
+        console.error('Error fetching about data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+  
+  // const memberships = [
+  //   "Executive Member of MES’s Swami Vivekanand Senior College, Mantha",
+  //   "Member of Pune University English Teachers’ Association",
+  //   "Member of Dr. Babasaheb Ambedkar Marathwada University English Teachers’ Association"
+  // ];
 
-  const languages = [
-    "English",
-    "Hindi",
-    "Marathi",
-  ];
+  // const languages = [
+  //   "English",
+  //   "Hindi",
+  //   "Marathi",
+  // ];
 
-  const interests = [
-    "Reading",
-    "Writing",
-    "Public Speaking",
-    "Traveling"
-  ];
-  const about = [
-    {
-      title: "I am Dr. Narayan Jadhav, a Professor",
-      description : `Hi! My name is Dr. Narayan Jadhav. I am passionate and
-                    dedicated to my work, with over 11 years of experience in
-                    teaching. My specialization lies in Comparative Studies,
-                    focusing on Indian Dalit Literature and American Black
-                    Literature. I am committed to academic excellence and strive
-                    to inspire my students to reach their full potential.`
-    }
-  ]
+  // const interests = [
+  //   "Reading",
+  //   "Writing",
+  //   "Public Speaking",
+  //   "Traveling"
+  // ];
+  // const about = [
+  //   {
+  //     title: "I am Dr. Narayan Jadhav, a Professor",
+  //     description : `Hi! My name is Dr. Narayan Jadhav. I am passionate and
+  //                   dedicated to my work, with over 11 years of experience in
+  //                   teaching. My specialization lies in Comparative Studies,
+  //                   focusing on Indian Dalit Literature and American Black
+  //                   Literature. I am committed to academic excellence and strive
+  //                   to inspire my students to reach their full potential.`
+  //   }
+  // ]
   // const Personal = [
   //   {
   //     name: "Name",
@@ -172,13 +194,9 @@ const About: NextPage = () => {
           <div className="row">
             <div className="about-content padd-15 flex gap-10 flex-col">
               <div className="row">
-                <div className="about-text padd-15">
-                  <h2>
-                    {about[0].title}
-                  </h2>
-                  <p>
-                    {about[0].description}
-                  </p>
+              <div className="about-text padd-15">
+                  <h2>{aboutData.title}</h2>
+                  <p>{aboutData.description}</p>
                 </div>
               </div>
               <div className=" timeline newrow flex justify-center rounded-xl p-10 md:flex-row flex-col h-auto" >
@@ -270,19 +288,19 @@ const About: NextPage = () => {
                   </div>
                 </div>
 
-                <div className="memberships padd-15 ">
+                <div className="row">
+                <div className="memberships padd-15">
                   <h3 className="title">Memberships</h3>
                   <ul>
-                    {memberships.map((membership, index) => (
+                    {aboutData.memberships.map((membership, index) => (
                       <p key={index}>{membership}</p>
                     ))}
                   </ul>
                 </div>
-
                 <div className="languages padd-15">
                   <h3 className="title">Languages</h3>
-                  <div className="  flex flex-col">
-                    {languages.map((language, index) => (
+                  <div className="flex flex-col">
+                    {aboutData.languages.map((language, index) => (
                       <div key={index} className="language-item padd-15">
                         <p>{language}</p>
                       </div>
@@ -292,14 +310,15 @@ const About: NextPage = () => {
                 <div className="interests padd-15">
                   <h3 className="title">Interests</h3>
                   <ul>
-                    {interests.map((interest, index) => (
-                      <p  key={index}>{interest}</p>
+                    {aboutData.interests.map((interest, index) => (
+                      <p key={index}>{interest}</p>
                     ))}
                   </ul>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
     </main>
