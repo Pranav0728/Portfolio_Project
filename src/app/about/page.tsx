@@ -179,6 +179,7 @@ const About: NextPage = () => {
                     </div>
                   </div>
                 </div>
+                </div>
                 <div className="education padd-15">
                   <h3 className="title">Languages</h3>
                   <div className="row">
@@ -195,6 +196,7 @@ const About: NextPage = () => {
                     </div>
                   </div>
                 </div>
+                
                 <div className="education padd-15">
                   <h3 className="title">interests</h3>
                   <div className="row">
@@ -212,7 +214,7 @@ const About: NextPage = () => {
                   </div>
                 </div>
                 
-                </div>
+             
 
                 <div className="row">
                   <div className="awards padd-15">

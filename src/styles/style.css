@@ -476,9 +476,7 @@ align-items: center;
   color: white;
 }
 .aboutnew .aboutnew-content .aboutnew-text {
-  -ms-flex: 0 0 50%;
-  flex: 0 0 22%;
-  max-width: 100%;
+ 
   color: white;
 }
 
@@ -1363,6 +1361,73 @@ align-items: center;
 /* ============================
 ------- Dark Body
 ================================*/
+
+[data-theme='dark'] .sectionnew {
+  background-color: #151515;
+}
+[data-theme='dark'] .contactnew .contactnew-form .formnew-item .formnew-control,
+[data-theme='dark'] .blognew .blognew-item-inner,
+[data-theme='dark'] .servicenew .servicenew-item .servicenew-item-inner,
+[data-theme='dark'] .aboutnew .aboutnew-content .timelinenew,
+[data-theme='dark'] .asidenew {
+  background-color: #222222;
+}
+
+[data-theme='dark'] .contactnew .contactnew-info-item h4,
+[data-theme='dark'] .blognew .blognew-item-inner .blognew-info .blognew-title,
+[data-theme='dark'] .portfolionew .portfolionew-filter button,
+[data-theme='dark'] .servicenew .servicenew-item .servicenew-item-inner h4,
+[data-theme='dark'] .aboutnew .aboutnew-content .timelinenew .timelinenew-title,
+[data-theme='dark'] .aboutnew .aboutnew-content h3.titlenew,
+[data-theme='dark'] .aboutnew .aboutnew-content .skillsnew .skillnew-item h5,
+[data-theme='dark'] .aboutnew .aboutnew-content .personalnew-info .infonew-item p,
+[data-theme='dark'] .aboutnew .aboutnew-content .aboutnew-text h2,
+[data-theme='dark'] .aboutnew .aboutnew-content .aboutnew-text2,
+
+[data-theme='dark'] .sectionnew-title h2,
+[data-theme='dark'] .homenew .intronew h1,
+[data-theme='dark'] .asidenew .copyrightnew,
+[data-theme='dark'] .asidenew .logonew a,
+[data-theme='dark'] .asidenew .navnew li a {
+  color: #fff;
+}
+
+[data-theme='dark'] .contactnew .contactnew-form .formnew-item .formnew-control,
+[data-theme='dark'] .contactnew .contactnew-info-item p,
+[data-theme='dark'] .blognew .blognew-item-inner .blognew-info .blognew-tags,
+[data-theme='dark'] .blognew .blognew-item-inner .blognew-info .blognew-description,
+[data-theme='dark'] .servicenew .servicenew-item .servicenew-item-inner p,
+[data-theme='dark'] .aboutnew .aboutnew-content .timelinenew .timelinenew-text,
+[data-theme='dark'] .aboutnew .aboutnew-content .timelinenew .timelinenew-date,
+[data-theme='dark'] .aboutnew .aboutnew-content .skillsnew .skillnew-item .skillnew-percent,
+[data-theme='dark'] .aboutnew .aboutnew-content .personalnew-info .infonew-item p span,
+[data-theme='dark'] .aboutnew .aboutnew-content .aboutnew-text p,
+[data-theme='dark'] .homenew .intronew p {
+  color: #e9e9e9;
+}
+
+[data-theme='dark'] .asidenew,
+[data-theme='dark'] .contactnew .contactnew-form .formnew-item .formnew-control,
+[data-theme='dark'] .blognew .blognew-item-inner,
+[data-theme='dark'] .portfolionew .portfolionew-item-inner,
+[data-theme='dark'] .servicenew .servicenew-item .servicenew-item-inner,
+[data-theme='dark'] .aboutnew .aboutnew-content .timelinenew,
+[data-theme='dark'] .aboutnew .aboutnew-content .personalnew-info .infonew-item p,
+[data-theme='dark'] .asidenew .navnew li a {
+  border-color: #393939;
+}
+
+[data-theme='dark'] .contactnew .contactnew-form .formnew-item input::placeholder,
+[data-theme='dark'] .contactnew .contactnew-form .formnew-item textarea::placeholder {
+  color: #fff;
+  opacity: 0.8;
+}
+
+[data-theme='dark'] .shadownew-dark {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 
 [data-theme='dark'] .section {
   background-color: #151515;

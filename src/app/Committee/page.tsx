@@ -25,7 +25,7 @@ const CommitteeWork: NextPage = () => {
   return (
     <main>
       <Sidebar />
-      <section className="committe section" id="committee-work">
+      <section className="committe section aboutnew" id="committee-work">
         <div className="container flex flex-col">
           <div className="row">
             <div className="section-title padd-15">
@@ -33,17 +33,17 @@ const CommitteeWork: NextPage = () => {
             </div>
           </div>
           <div className="row">
-            <div className="committee-content padd-15 flex gap-10 flex-col">
-              <div className="timeline-box padd-15">
-                <div className="timeline shadow-dark">
+            <div className="aboutnew-content padd-15 flex gap-10 flex-col">
+              <div className="timelinenew-box padd-15">
+                <div className=" shadow-dark">
                   {committeeData.map((committee, index) => (
-                    <div key={index} className="timeline-item mb-10">
+                    <div key={index} className="timelinenew  aboutnew-text mb-10">
                       <div className="circle-dot" />
-                      <h6 className="timeline-date">
+                      <h2 className="timelinenew-date">
                         <i className="fa fa-calendar" /> {new Date(committee.createdAt).toLocaleDateString()}
-                      </h6>
-                      <h4 className="timeline-title">{committee.name}</h4>
-                      <p className="timeline-text">{committee.details}</p>
+                      </h2>
+                      <h2 className="timelinenew-title">{committee.name}</h2>
+                      <p className="timelinew-text">{committee.details}</p>
                     </div>
                   ))}
                 </div>

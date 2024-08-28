@@ -26,7 +26,7 @@ const ResearchPublications: NextPage = () => {
   return (
     <main>
       <section
-        className="research-publications section"
+        className="research-publications aboutnew section"
         id="research-publications"
       >
         <div>
@@ -34,36 +34,36 @@ const ResearchPublications: NextPage = () => {
           <div className="section-title padd-15">
             <h2>Research Publications in Journals</h2>
           </div>
-          <div className="about-content timeline flex flex-col gap-5">
+          <div className="aboutnew-content timelinenew flex flex-col gap-5">
             {research.map((pub: any, index: number) => (
               <div
                 key={index}
-                className="about-content timeline rounded-lg p-5 flex flex-col gap-1"
+                className="aboutnew-text  timelinenew rounded-lg p-5 flex flex-col gap-1"
               >
-                <h4 className="title rounded-lg text-white font-bold text-[1.5rem] w-full">
+                <h2 className="title rounded-lg text-white font-bold text-[1.5rem] w-full">
                   {pub.title}
-                </h4>
-                <h2>
+                </h2>
+                <p>
                   <strong>Authors:</strong> {pub.authors}
-                </h2>
-                <h2>
+                </p>
+                <p>
                   <strong>Journal:</strong> {pub.journal}
-                </h2>
-                <h2>
+                </p>
+                <p>
                   <strong>Volume:</strong> {pub.volume}
-                </h2>
-                <h2>
+                </p>
+                <p>
                   <strong>Month/Year:</strong> {pub.monthYear}
-                </h2>
-                <h2>
+                </p>
+                <p>
                   <strong>Referred:</strong> {pub.referred}
-                </h2>
-                <h2>
+                </p>
+                <p>
                   <strong>ISSN:</strong> {pub.issn}
-                </h2>
-                <h2>
+                </p>
+                <p>
                   <strong>Level:</strong> {pub.level}
-                </h2>
+                </p>
                 <br />
               </div>
             ))}

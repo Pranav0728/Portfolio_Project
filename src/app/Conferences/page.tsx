@@ -25,26 +25,26 @@ const ConferencesWorkshops: NextPage = () => {
   return (
     <main>
       <Sidebar />
-      <section className="papers section" id="conferences-workshops">
-        <div className="container flex flex-col">
+      <section className="papers section aboutnew" id="conferences-workshops">
+        <div className="container aboutnew-content flex flex-col">
           <div className="row">
             <div className="section-title padd-15">
               <h2>Conferences & Workshops</h2>
             </div>
           </div>
           <div className="row">
-            <div className="papers-content padd-15 flex gap-10 flex-col">
+            <div className="papers-content aboutnew-content padd-15 flex gap-10 flex-col">
               <div className="timeline-box padd-15">
                 <div className="timeline shadow-dark">
                   {papersData.map((paper, index) => (
-                    <div key={index} className="timeline-item mb-10">
+                    <div key={index} className="timelinenew aboutnew-text mb-10">
                       <div className="circle-dot" />
-                      <h6 className="timeline-date">
+                      <h2 className="timeline-date">
                         <i className="fa fa-calendar" /> 
                         {new Date(paper.fromDate).toLocaleDateString()} - 
                         {new Date(paper.toDate).toLocaleDateString()}
-                      </h6>
-                      <h4 className="timeline-title">{paper.authors}</h4>
+                      </h2>
+                      <h2 className="timeline-title">{paper.authors}</h2>
                       <p className="timeline-text">
                         <strong>Subject:</strong> {paper.subject}<br />
                         <strong>Institute:</strong> {paper.nameOfInstitute}<br />
