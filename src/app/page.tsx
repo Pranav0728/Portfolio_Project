@@ -49,8 +49,8 @@ export default function Home() {
     <main className="min-h-screen bg-gray-100 " id="about">
       <section className="home section flex justify-center items-center py-20" id="home">
         <div className="container flex gap-5 justify-center items-center">
-        {Personal.map((user) => (
-          <div className="intro flex gap-5 md:flex-row flex-col justify-center items-center">
+        {Personal.map((user,index) => (
+          <div key={index} className="intro flex gap-5 md:flex-row flex-col justify-center items-center">
             <Image
               src={img}
               alt="Profile of Dr. Narayan Jadhav"
