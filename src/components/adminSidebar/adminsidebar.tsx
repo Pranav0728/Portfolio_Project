@@ -4,17 +4,21 @@ import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
-
+  const router = useRouter()
   const handleOpen = () => {
     setOpen(!open);
   };
   const handleClose = () => {
     setOpen(false);
   };
-
+  const onClickedsignout = () => {
+    signOut();
+    router.replace('/')
+  }
   const pathUrl = usePathname();
 
   return (
@@ -28,9 +32,6 @@ const Sidebar = () => {
             <p>Admin</p>
           </Link> 
         </div>
-        <div>
-        <button onClick={()=>signOut()}>Sign Out</button>
-      </div>
         <ul className="nav">
           <li onClick={handleClose}>
             <Link href="/admin" className={`${pathUrl == "/admin" && "active"}`}>
@@ -133,6 +134,9 @@ const Sidebar = () => {
               <i className="fa fa-comments" /> Contact
             </Link>
           </li>
+          <div>
+        <button className="m-5 font-bold bg-red-600 p-2 rounded-sm" onClick={onClickedsignout}>Sign Out</button>
+      </div>
         </ul>
       </div>
     </aside>
