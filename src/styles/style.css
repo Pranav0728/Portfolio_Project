@@ -4,6 +4,32 @@
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader {
+  border-right-color: transparent;
+  animation: loader-rotate 1s linear infinite;
+}
+.spinner {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 body {
   margin: 0;
   line-height: 1.5;
@@ -468,12 +494,23 @@ align-items: center;
 
 /* ABout Section
 ========================================================== */
+.aboutnew{
+  display: flex;
 
+
+}
+
+.newabout{
+  width: 100%;
+  
+}
 .aboutnew .aboutnew-content {
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
-  max-width: 100%;
+  /* -ms-flex: 0 0 100%;
+  flex: 0 0 100%; */
+
+  width: 100%;
   color: white;
+  display: flex;
 }
 .aboutnew .aboutnew-content .aboutnew-text {
  
@@ -594,8 +631,7 @@ align-items: center;
   color: #302e4d;
 }
 .aboutnew .aboutnew-content .timelinenew-box {
-  -ms-flex: 0 0 100%;
-  flex: 0 0 100%;
+  flex-direction: row;
   max-width: 100%;
 }
 
@@ -612,8 +648,9 @@ align-items: center;
   padding: 30px 15px;
   border: 1px solid #d4d4e3;
   border-radius: 10px;
-  width: 100%;
-  position: relative; 
+  width: 50%;
+  /* position: relative;  */
+  display: flex;
 }
 .aboutnew .aboutnew-content .timelinenew .timelinenew-item {
   position: relative;
@@ -845,6 +882,44 @@ align-items: center;
   border-radius: 10px;
   width: 100%;
   position: relative;
+}
+
+@media screen and (max-width: 640px) {
+  .newper{
+    margin-top: 60rem;
+  }
+  .about .about-content .personal-info {
+    -ms-flex: 0 0 60%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: -50rem;
+  }
+  .about .about-content .personal-info .info-item {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .about .about-content {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    color: white;
+  }
+
+  .skillroww{
+    margin-top: 30rem;
+  }
+  .about .about-content .timeline {
+    background-color: #fdf9ff;
+    border: 1px solid #d4d4e3;
+    border-radius: 10px;
+    position: relative; background-color: #fdf9ff;
+    border: 1px solid #d4d4e3;
+    width: 100%;
+    position: relative;
+    height: 100vh;
+  }
+
 }
 .about .about-content .timeline .timeline-item {
   position: relative;

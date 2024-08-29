@@ -73,11 +73,11 @@ const About: NextPage = () => {
                 </div>
               </div>
               <div className="timeline newrow flex justify-center rounded-xl p-10 md:flex-row flex-col h-auto">
-                <div className="personal-info h-auto">
+                <div className="personal-info newper h-auto">
                   <div className="flex flex-col">
                     {personal.map((user) => (
                       <div className="info-item border-[white]" key={user._id}>
-                        <div className="gap-2">
+                        <div className="">
                           <p>Name: {user.name}</p>
                           <p>Degree: {user.degree}</p>
                           <p>Email: {user.email}</p>
@@ -106,8 +106,8 @@ const About: NextPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="skills">
-                  <div className="row">
+                <div className="skills ">
+                  <div className="row skillroww">
                     {skills.map((skill, index) => (
                       <div key={index} className="skill-item">
                         <h5>{skill.name}</h5>

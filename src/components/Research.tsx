@@ -34,7 +34,7 @@ const ResearchPublications: NextPage = () => {
           <div className="section-title padd-15">
             <h2>Research Publications in Journals</h2>
           </div>
-          <div className="aboutnew-content timelinenew flex flex-col gap-5">
+          <div className="aboutnew-content newabout  flex flex-col gap-5">
             {research.map((pub: any, index: number) => (
               <div
                 key={index}
