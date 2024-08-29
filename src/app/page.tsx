@@ -17,18 +17,6 @@ const rokkitt = Rokkitt({
   preload: true, // Preload if necessary
 });
 
-const oswald = Oswald({ 
-  subsets: ['latin'],
-  weight: '200',
-  preload: false,
-});
-
-const courgette = Courgette({ 
-  subsets: ['latin'],
-  weight: '400',
-  preload: false,
-});
-
 // const Personal = {
 //   img: "/imgs/Profile.png",
 //   name: "Dr. Narayan Jadhav",
