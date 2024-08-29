@@ -54,7 +54,23 @@ const Sidebar = () => {
               href="/Books"
               className={`${pathUrl == "/Books" && "active"}`}
             >
-              <i className="fa fa-briefcase" /> Books
+              <i className="fa fa-briefcase" /> Books & Articles
+            </Link>
+          </li>
+          <li onClick={handleClose}>
+            <Link
+              href="/Committee"
+              className={`${pathUrl == "/Committee" && "active"}`}
+            >
+              <i className="fa fa-briefcase" /> Committe Work
+            </Link>
+          </li>
+          <li onClick={handleClose}>
+            <Link
+              href="/Conferences"
+              className={`${pathUrl == "/Conferences" && "active"}`}
+            >
+              <i className="fa fa-briefcase" /> Conferences
             </Link>
           </li>
           <li onClick={handleClose}>

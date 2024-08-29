@@ -73,7 +73,7 @@ export default function Home() {
             />
             <div className="flex flex-col items-center justify-center">
               <h1 className={`text-[4rem] text-black ${lobster.className}`}>{user.name}</h1>
-              <p className={`text-[2rem] mt-2 ${rokkitt.className}`}>{user.subHeader}</p>
+              <p className={`text-[2rem] mt-2 text-black ${rokkitt.className}`}>{user.subHeader}</p>
             
               {/* <div className="social-links flex gap-3 mt-4">
                 {[

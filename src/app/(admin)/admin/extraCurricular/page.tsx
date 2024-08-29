@@ -2,26 +2,24 @@
 import Sidebar from "@/components/adminSidebar/adminsidebar";
 import { useEffect, useState } from "react";
 
-export default function ExperiencePage() {
-  const [experienceData, setExperienceData] = useState<any[]>([]);
+export default function ExtraCurricularPage() {
+  const [extraCurricularData, setExtraCurricularData] = useState<any[]>([]);
   const [editData, setEditData] = useState<any>(null);
   const [newData, setNewData] = useState<any>({
-    period: "",
     title: "",
     details: "",
   });
-  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/experience`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/extraCurricular`, {
           headers: { Authorization: process.env.NEXT_PUBLIC_API_KEY as string },
         });
         const fetchedData = await response.json();
-        setExperienceData(fetchedData);
+        setExtraCurricularData(fetchedData);
       } catch (error) {
-        console.error("Error fetching experience data:", error);
+        console.error("Error fetching extra-curricular data:", error);
       }
     };
     fetchData();
@@ -33,7 +31,7 @@ export default function ExperiencePage() {
 
   const handleDelete = async (id: string) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/experience/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/extraCurricular/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: process.env.NEXT_PUBLIC_API_KEY as string,
@@ -41,10 +39,10 @@ export default function ExperiencePage() {
       });
 
       if (response.ok) {
-        setExperienceData(experienceData.filter((item) => item._id !== id));
-        alert("Experience record deleted successfully!");
+        setExtraCurricularData(extraCurricularData.filter((item) => item._id !== id));
+        alert("Extra-curricular record deleted successfully!");
       } else {
-        console.error("Error deleting experience record.");
+        console.error("Error deleting extra-curricular record.");
       }
     } catch (error) {
       console.error("Error deleting data:", error);
@@ -55,7 +53,7 @@ export default function ExperiencePage() {
     if (!editData) return;
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/experience/${editData._id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/extraCurricular/${editData._id}`, {
         method: "PUT",
         headers: {
           Authorization: process.env.NEXT_PUBLIC_API_KEY as string,
@@ -65,14 +63,14 @@ export default function ExperiencePage() {
       });
 
       if (response.ok) {
-        const updatedExperienceData = experienceData.map((item) =>
+        const updatedExtraCurricularData = extraCurricularData.map((item) =>
           item._id === editData._id ? editData : item
         );
-        setExperienceData(updatedExperienceData);
+        setExtraCurricularData(updatedExtraCurricularData);
         setEditData(null);
-        alert("Experience information updated successfully!");
+        alert("Extra-curricular information updated successfully!");
       } else {
-        console.error("Error updating experience information.");
+        console.error("Error updating extra-curricular information.");
       }
     } catch (error) {
       console.error("Error saving data:", error);
@@ -81,7 +79,7 @@ export default function ExperiencePage() {
 
   const handleAdd = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/experience`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/extraCurricular`, {
         method: "POST",
         headers: {
           Authorization: process.env.NEXT_PUBLIC_API_KEY as string,
@@ -92,12 +90,15 @@ export default function ExperiencePage() {
 
       if (response.ok) {
         const result = await response.json();
-        setExperienceData([...experienceData, result]);
-        setNewData({ period: "", title: "", details: "" });
-        alert("Experience record added successfully!");
+        setExtraCurricularData([...extraCurricularData, result]);
+        setNewData({
+          title: "",
+          details: "",
+        });
+        alert("Extra-curricular record added successfully!");
         location.reload();
       } else {
-        console.error("Error adding experience record.");
+        console.error("Error adding extra-curricular record.");
       }
     } catch (error) {
       console.error("Error adding data:", error);
@@ -118,19 +119,11 @@ export default function ExperiencePage() {
       <Sidebar />
       <section className="about section" id="about">
         <section className="min-h-screen p-10">
-          <h1 className="text-3xl font-bold">Manage Experience Records</h1>
+          <h1 className="text-3xl font-bold">Manage Extra-Curricular Activities</h1>
           <div className="container flex flex-col gap-6">
             {/* Add New Record Form */}
             <div className="border-t pt-4 mt-4">
-              <h2 className="text-2xl font-bold">Add New Experience Record</h2>
-              <input
-                type="text"
-                name="period"
-                value={newData.period}
-                onChange={handleChange}
-                className="border px-3 py-2 rounded mt-2 w-full"
-                placeholder="Period"
-              />
+              <h2 className="text-2xl font-bold">Add New Extra-Curricular Record</h2>
               <input
                 type="text"
                 name="title"
@@ -139,13 +132,13 @@ export default function ExperiencePage() {
                 className="border px-3 py-2 rounded mt-2 w-full"
                 placeholder="Title"
               />
-              <input
-                type="text"
+              <textarea
                 name="details"
                 value={newData.details}
                 onChange={handleChange}
                 className="border px-3 py-2 rounded mt-2 w-full"
                 placeholder="Details"
+                rows={4}
               />
               <button
                 className="bg-green-500 text-white px-4 py-2 rounded mt-4 hover:bg-green-600"
@@ -155,11 +148,9 @@ export default function ExperiencePage() {
               </button>
             </div>
             <div>
-              {experienceData.map((item) => (
+              {extraCurricularData.map((item) => (
                 <div key={item._id} className="border-b pb-4 mb-4">
-                  <h2 className="text-2xl">
-                    {item.period} - {item.title}
-                  </h2>
+                  <h2 className="text-2xl">{item.title}</h2>
                   <p className="text-lg mt-1">{item.details}</p>
                   <div className="mt-2 flex gap-4">
                     <button
@@ -182,15 +173,7 @@ export default function ExperiencePage() {
             {/* Edit Form */}
             {editData && (
               <div className="border-t pt-4 mt-4">
-                <h2 className="text-2xl font-bold">Edit Experience Record</h2>
-                <input
-                  type="text"
-                  name="period"
-                  value={editData.period}
-                  onChange={handleChange}
-                  className="border px-3 py-2 rounded mt-2 w-full"
-                  placeholder="Period"
-                />
+                <h2 className="text-2xl font-bold">Edit Extra-Curricular Record</h2>
                 <input
                   type="text"
                   name="title"
@@ -199,13 +182,13 @@ export default function ExperiencePage() {
                   className="border px-3 py-2 rounded mt-2 w-full"
                   placeholder="Title"
                 />
-                <input
-                  type="text"
+                <textarea
                   name="details"
                   value={editData.details}
                   onChange={handleChange}
                   className="border px-3 py-2 rounded mt-2 w-full"
                   placeholder="Details"
+                  rows={4}
                 />
                 <button
                   className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
