@@ -2,7 +2,24 @@ import { NextResponse } from "next/server";
 import Book from "@/models/Book";
 import connectMongoDB from "@/lib/db";
 import { isApiValid } from "@/lib/function";
+import path from "path";
+import { promises as fs } from 'fs';
+import { writeFile } from "fs/promises";
 
+
+async function generateUniqueFileName(directory, fileName) {
+  let counter = 1;
+  let newFileName = fileName;
+  const fileExtension = path.extname(fileName);
+  const fileNameWithoutExtension = path.basename(fileName, fileExtension);
+
+  while (await fs.stat(path.join(directory, newFileName)).catch(() => false)) {
+    newFileName = `${fileNameWithoutExtension}(${counter})${fileExtension}`;
+    counter += 1;
+  }
+  
+  return newFileName;
+}
 
 export async function GET(req) {
   try {
@@ -32,18 +49,36 @@ export async function POST(req) {
     if (!isApiValid(apiKey)) {
       return NextResponse.json("Unauthorized", { status: 401 });
     }
+
+    const formData = await req.formData();
+
+    // Get the file and store it first
+    const file = formData.get('file');
+    if (!file) {
+      console.log("No files received")
+    }
+    
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const fileName = file.name.replaceAll(" ", "_");
+    const fullPathDirectory = path.join(process.cwd(), "public/assets/books");
+    const uniqueFileName = await generateUniqueFileName(fullPathDirectory, fileName);
+    const imagePath = "/assets/books/" + uniqueFileName;
+
+    await writeFile(
+      path.join(fullPathDirectory, uniqueFileName),
+      buffer
+    );
+
     await connectMongoDB();
-    const data = await req.json();
-    const {
-      author,
-      publisher,
-      position,
-      title,
-      year,
-      referred,
-      isbn,
-      level,
-    } = data;
+    const author = await formData.get('author');
+    const publisher = await formData.get('publisher')
+    const position = await formData.get('position')
+    const title = await formData.get('title')
+    const year = await formData.get('year')
+    const referred = await formData.get('referred')
+    const isbn = await formData.get('isbn')
+    const level = await formData.get('level')
+    console.log(imagePath)
     await Book.create({
         author,
         publisher,
@@ -53,6 +88,7 @@ export async function POST(req) {
         referred,
         isbn,
         level,
+        imagePath
     });
     return NextResponse.json(
       { message: "Book Added Successfully" },

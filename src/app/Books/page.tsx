@@ -2,58 +2,86 @@
 import Sidebar from "@/components/sidebar/sidebar";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
+interface Book {
+  _id: string;
+  imagePath: string;
+  title: string;
+  author: string;
+  publisher: string;
+  position: string;
+  year: string;
+  referred: string;
+  isbn: string;
+  level: string;
+}
+
+interface Article {
+  _id: string;
+  title: string;
+  author: string;
+  publishedIn: string;
+  pageNo: string;
+  date: string;
+  level: string;
+}
 
 const BooksList: NextPage = () => {
-
-  const [book, setBook] = useState<any[]>([]);
-  const [articleData, setArticleData] = useState<any[]>([]);
+  const [books, setBooks] = useState<Book[]>([]);
+  const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchBooks = async () => {
       try {
-        const data = await fetch(`api/book`, {
+        const response = await fetch(`api/book`, {
           headers: { Authorization: process.env.NEXT_PUBLIC_API_KEY as string },
         });
-        const bookData = await data.json();
-        setBook(bookData);
+        const bookData: Book[] = await response.json();
+        setBooks(bookData);
       } catch (error) {
         console.error("Error fetching book data:", error);
       }
     };
-    fetchData();
+    fetchBooks();
   }, []);
+
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchArticles = async () => {
       try {
-        const data = await fetch(`api/article`, {
+        const response = await fetch(`api/article`, {
           headers: { Authorization: process.env.NEXT_PUBLIC_API_KEY as string },
         });
-        const articleData = await data.json();
-        setArticleData(articleData);
+        const articleData: Article[] = await response.json();
+        setArticles(articleData);
       } catch (error) {
         console.error("Error fetching article data:", error);
       }
     };
-    fetchData();
+    fetchArticles();
   }, []);
-
-
 
   return (
     <main>
       <Sidebar />
       <section className="books-list aboutnew section" id="about">
-   
         <div className="container">
           <div className="section-title padd-15">
-            {/* Book List */}
             <h2>Books List</h2>
           </div>
           <div className="row">
             <div className="aboutnew-content timelinenew padd-15 flex flex-col gap-5">
-              {book.map((book) => (
-                <div key={book._id} className="timelinenew aboutnew-text p-5 flex flex-col gap-1">
+              {books.map((book) => (
+                <div key={book._id} className="timelinenew aboutnew-text p-5 flex md:flex-row flex-col gap-1">
+                  <div className="m-10 border-4 border-black rounded-md">
+                    <Image
+                      src={book.imagePath}
+                      width={300}
+                      height={300}
+                      alt="Book cover"
+                    />
+                  </div>
+                  <div className=" m-10">
                   <h2 className="rounded-lg text-white font-bold text-[1.5rem] w-full">{book.title}</h2>
                   <p>
                     <strong>Author:</strong> {book.author}
@@ -77,17 +105,17 @@ const BooksList: NextPage = () => {
                     <strong>Level:</strong> {book.level}
                   </p>
                   <br />
+                  </div>
                 </div>
               ))}
             </div>
           </div>
           <div className="section-title padd-15">
-            {/* Article List */}
             <h2>Articles List</h2>
           </div>
           <div className="row">
             <div className="aboutnew-content timelinenew padd-15 flex flex-col gap-5">
-              {articleData.map((article) => (
+              {articles.map((article) => (
                 <div key={article._id} className="timelinenew aboutnew-text p-5 flex flex-col gap-1">
                   <h2 className="rounded-lg text-white font-bold text-[1.5rem] w-full">{article.title}</h2>
                   <p>

@@ -27,6 +27,9 @@ const bookSchema = new Schema(
     level: {
         type: String,
 
+    },
+    imagePath: {
+      type: String,
     }
   },
   { timestamps: true }
