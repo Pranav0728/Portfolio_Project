@@ -70,17 +70,15 @@ export async function POST(req) {
     );
 
     await connectMongoDB();
-    const data = await formData
-    const {
-      author,
-      publisher,
-      position,
-      title,
-      year,
-      referred,
-      isbn,
-      level,
-    } = data;
+    const author = await formData.get('author');
+    const publisher = await formData.get('publisher')
+    const position = await formData.get('position')
+    const title = await formData.get('title')
+    const year = await formData.get('year')
+    const referred = await formData.get('referred')
+    const isbn = await formData.get('isbn')
+    const level = await formData.get('level')
+    console.log(imagePath)
     await Book.create({
         author,
         publisher,
