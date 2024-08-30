@@ -51,7 +51,7 @@ const Contact: NextPage = () => {
 
       await emailjs.sendForm(
         "service_macs5pj",
-        "template_el0hywa",
+        "template_5lxo0ak",
         "#form",
         "sWGzRrDkChJMq-guV"
       );
