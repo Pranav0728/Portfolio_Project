@@ -1,6 +1,7 @@
 "use client"
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const ResearchPublications: NextPage = () => {
   const [research, setResearch] = useState<any[]>([]);
@@ -65,6 +66,9 @@ const ResearchPublications: NextPage = () => {
                   <strong>Level:</strong> {pub.level}
                 </p>
                 <br />
+                <Link href={'http://puneresearch.com/home'} target="_blank">
+                <button className="bg-green-600 p-2 rounded-md scale-75"> Read here</button>
+                </Link>
               </div>
             ))}
           </div>
