@@ -37,7 +37,7 @@ const CommitteeWork: NextPage = () => {
               <div className="timelinenew-box padd-15">
                 <div className=" shadow-dark">
                   {committeeData.map((committee, index) => (
-                    <div key={index} className="timelinenew  aboutnew-text mb-10">
+                    <div key={index} className="timelinenew flex flex-col aboutnew-text mb-10">
                       <div className="circle-dot" />
                       <h2 className="timelinenew-date">
                         <i className="fa fa-calendar" /> {new Date(committee.createdAt).toLocaleDateString()}

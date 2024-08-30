@@ -37,7 +37,7 @@ const ConferencesWorkshops: NextPage = () => {
               <div className="timeline-box padd-15">
                 <div className="timeline shadow-dark">
                   {papersData.map((paper, index) => (
-                    <div key={index} className="timelinenew aboutnew-text mb-10">
+                    <div key={index} className="timelinenew flex flex-col aboutnew-text mb-10">
                       <div className="circle-dot" />
                       <h2 className="timeline-date">
                         <i className="fa fa-calendar" /> 
