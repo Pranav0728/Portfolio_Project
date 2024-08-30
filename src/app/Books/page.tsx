@@ -73,7 +73,7 @@ const BooksList: NextPage = () => {
             <div className="aboutnew-content timelinenew padd-15 flex flex-col gap-5">
               {books.map((book) => (
                 <div key={book._id} className="timelinenew aboutnew-text p-5 flex md:flex-row flex-col gap-1">
-                  <div className="m-10 border-4 border-black rounded-md">
+                  <div className="md:m-10 border-4 border-black rounded-md">
                     <Image
                       src={book.imagePath}
                       width={300}
@@ -81,7 +81,7 @@ const BooksList: NextPage = () => {
                       alt="Book cover"
                     />
                   </div>
-                  <div className=" m-10">
+                  <div className=" md:m-10">
                   <h2 className="rounded-lg text-white font-bold text-[1.5rem] w-full">{book.title}</h2>
                   <p>
                     <strong>Author:</strong> {book.author}

@@ -857,6 +857,7 @@ align-items: center;
   color: #302e4d;
 }
 .about .about-content .timeline-box {
+  height: auto;
   -ms-flex: 0 0 100%;
   flex: 0 0 100%;
   max-width: 100%;
