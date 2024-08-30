@@ -50,10 +50,10 @@ const Contact: NextPage = () => {
       console.log(message);
 
       await emailjs.sendForm(
-        "service_d5hpehs",
-        "template_oi2xykk",
+        "service_macs5pj",
+        "template_el0hywa",
         "#form",
-        "z8Dw4X9gamLOG7blh"
+        "sWGzRrDkChJMq-guV"
       );
 
       console.log("SUCCESS!");
