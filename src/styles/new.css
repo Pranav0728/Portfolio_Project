@@ -156,6 +156,7 @@
     color: #302e4d;
   }
   .about .about-content .timeline-box {
+    height: auto;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
@@ -163,7 +164,7 @@
   
   .timeline2{
     background-color: #222222;
-    
+    height: auto;
     padding: 30px 15px;
     border: 1px solid #d4d4e3;
     border-radius: 10px;

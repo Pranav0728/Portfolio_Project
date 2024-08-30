@@ -74,20 +74,20 @@ const About: NextPage = () => {
               </div>
               <div className="timeline newrow flex justify-center rounded-xl p-10 md:flex-row flex-col h-auto">
                 <div className="personal-info newper h-auto">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col ">
                     {personal.map((user) => (
-                      <div className="info-item border-[white]" key={user._id}>
+                      <div className="m-2 border-[white]" key={user._id}>
                         <div className="">
-                          <p>Name: {user.name}</p>
-                          <p>Degree: {user.degree}</p>
-                          <p>Email: {user.email}</p>
-                          <p>City: {user.city}</p>
-                          <p>{user.phone.join(",")}</p>
+                          <p className="m-2">Name: {user.name}</p>
+                          <p className="m-2">Degree: {user.degree}</p>
+                          <p className="m-2">Email: {user.email}</p>
+                          <p className="m-2">City: {user.city}</p>
+                          <p className="m-2">{user.phone.join(",")}</p>
                         </div>
                       </div>
                     ))}
                   </div>
-                  <div className="row flex justify-center items-center">
+                  <div className="row flex justify-center items-center m-2">
                     <div className="buttons">
                       <a
                         href="/assets/Resume.pdf"
@@ -125,8 +125,8 @@ const About: NextPage = () => {
                 <div className="education padd-15">
                   <h3 className="title">Education</h3>
                   <div className="row">
-                    <div className="timeline-box padd-15">
-                      <div className="timeline shadow-dark">
+                    <div className="timeline-box padd-15 ">
+                      <div className="timeline shadow-dark ">
                         {education.map((edu, index) => (
                           <div key={index} className="timeline-item">
                             <div className="circle-dot" />
