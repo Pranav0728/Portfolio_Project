@@ -115,13 +115,15 @@ export default function EducationPage() {
   return (
     <>
       <Sidebar />
-      <section className="about section" id="about">
-      <section className="min-h-screen p-10" >
-        <h1 className="text-3xl font-bold">Manage Education Records</h1>
-        <div className="container flex flex-col gap-6">
+      <section className="about   section" id="about">
+      <section className="min-h-screen p-10 about-content" >
+        <div className="about-text">
+        <h2 className="text-3xl font-bold ">Manage Education Records</h2>
+        </div>
+        <div className="container flex flex-col gap-6 about-content">
           
           {/* Add New Record Form */}
-          <div className="border-t pt-4 mt-4">
+          <div className="border-t pt-4 mt-4 about-text" >
             <h2 className="text-2xl font-bold">Add New Education Record</h2>
             <input
               type="text"
@@ -156,7 +158,7 @@ export default function EducationPage() {
           </div>
           <div>
           {educationData.map((item) => (
-            <div key={item._id} className="border-b pb-4 mb-4">
+            <div key={item._id} className="border-b about-text pb-4 mb-4">
               <h2 className="text-2xl">
                 {item.year} - {item.title}
               </h2>

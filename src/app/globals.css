@@ -2,9 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+#newtimeline{
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+.newtimelinen2{
+  display: none;
+}
 
-
-
+@media (max-width: 768px) {
+  .newtimelinen2{
+    display: flex;
+  }
+  #newtimeline{
+    display: none;
+  }
+}
+@media (max-width: 375px) {
+  #newtimeline{
+    display: none;
+  }
+}
 
 :root {
   --max-width: 1100px;

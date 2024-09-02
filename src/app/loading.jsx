@@ -7,7 +7,7 @@ export default function Loading() {
       <Header />
       <section className="h-[120vh] mt-[-5rem] aboutnew-content w-[90%] flex justify-center items-center">
         <div className="flex timelinenew justify-center items-center h-full">
-          <div className="loader"></div>
+          <div className="loader "></div>
         </div>
       </section>
     </main>

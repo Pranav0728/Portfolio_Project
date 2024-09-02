@@ -72,11 +72,11 @@ const About: NextPage = () => {
                   <p>{aboutData.description}</p>
                 </div>
               </div>
-              <div className="timeline newrow flex justify-center rounded-xl p-10 md:flex-row flex-col h-auto">
-                <div className="personal-info newper h-auto">
+              <div className="timeline  " id="newtimeline">
+                <div className="personal-info newper h-auto ">
                   <div className="flex flex-col ">
                     {personal.map((user) => (
-                      <div className="m-2 border-[white]" key={user._id}>
+                      <div className=" border-[white]" key={user._id}>
                         <div className="">
                           <p className="m-2">Name: {user.name}</p>
                           <p className="m-2">Degree: {user.degree}</p>
@@ -106,6 +106,7 @@ const About: NextPage = () => {
                     </div>
                   </div>
                 </div>
+                
                 <div className="skills ">
                   <div className="row skillroww">
                     {skills.map((skill, index) => (
@@ -120,6 +121,58 @@ const About: NextPage = () => {
                   </div>
                 </div>
               </div>
+              <div className=" flex md:hidden">
+              <div className="  about-text personal-info newper h-auto ">
+                  <div className="flex flex-col ">
+                    {personal.map((user) => (
+                      <div className=" border-[white]" key={user._id}>
+                        <div className="">
+                          <p className="m-2">Name: {user.name}</p>
+                          <p className="m-2">Degree: {user.degree}</p>
+                          <p className="m-2">Email: {user.email}</p>
+                          <p className="m-2">City: {user.city}</p>
+                          <p className="m-2">{user.phone.join(",")}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="row flex justify-center items-center m-2">
+                    <div className="buttons">
+                      <a
+                        href="/assets/Resume.pdf"
+                        target="_target"
+                        className="btn"
+                      >
+                        Download CV
+                      </a>
+                      <a
+                        href="/contact"
+                        data-section-index={0}
+                        className="btn hire-me"
+                      >
+                        Hire Me
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              <div className="  flex md:hidden ">
+                <div className="skills h-[auto] ">
+                  <div className="row skillroww">
+                    {skills.map((skill, index) => (
+                      <div key={index} className="skill-item">
+                        <h5>{skill.name}</h5>
+                        <div className="progress">
+                          <div className="progress-in" style={{ width: skill.level }} />
+                          <div className="skill-percent">{skill.level}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              
 
               <div className="row">
                 <div className="education padd-15">
@@ -162,7 +215,6 @@ const About: NextPage = () => {
                   </div>
                 </div>
 
-                <div className="row">
                 <div className="education padd-15">
                   <h3 className="title">Memberships</h3>
                   <div className="row">
@@ -178,7 +230,6 @@ const About: NextPage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
                 </div>
                 <div className="education padd-15">
                   <h3 className="title">Languages</h3>
