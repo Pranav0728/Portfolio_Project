@@ -74,7 +74,7 @@ const About: NextPage = () => {
               </div>
               <div className="timeline  " id="newtimeline">
                 <div className="personal-info newper h-auto ">
-                  <div className="flex flex-col ">
+                  <div className="flex flex-col about-text">
                     {personal.map((user) => (
                       <div className=" border-[white]" key={user._id}>
                         <div className="">
