@@ -116,8 +116,11 @@ export default function ContactPage() {
     <>
       <Sidebar />
       <section className="about section" id="about">
-        <section className="min-h-screen p-10">
+        <section className="min-h-screen p-10 about-content">
+        <div className="about-text">
+
           <h1 className="text-3xl font-bold">Manage Contact Records</h1>
+          </div>
           <div className="container flex flex-col gap-6">
             {/* Add New Record Form */}
             {/* <div className="border-t pt-4 mt-4">
@@ -163,7 +166,7 @@ export default function ContactPage() {
             </div> */}
             <div>
               {contactData.map((item) => (
-                <div key={item._id} className="border-b pb-4 mb-4">
+                <div key={item._id} className="border-b about-text pb-4 mb-4">
                   <h2 className="text-2xl">
                     {item.name} - {item.subject}
                   </h2>

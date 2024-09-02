@@ -5,7 +5,7 @@ import NextTopLoader from "nextjs-toploader";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider enableSystem>
+    <ThemeProvider enableSystem >
       <NextTopLoader />
       {children}
     </ThemeProvider>

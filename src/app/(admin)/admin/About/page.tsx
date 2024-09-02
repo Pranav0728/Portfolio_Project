@@ -79,9 +79,11 @@ export default function AboutPage() {
     <>
       <Sidebar />
       <section className="about section" id="about">
-      <div className="p-6 w-full">
+      <div className="p-6 w-full about-content">
+        <div className="about-text">
         <h1 className="text-2xl font-semibold mb-4">About Section</h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        </div>
+        <form onSubmit={handleSubmit} className="space-y-4 about-text">
           <div>
             <label htmlFor="title" className="block text-sm font-medium text-gray-700">
               Title

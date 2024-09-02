@@ -121,7 +121,7 @@ export default function ExperiencePage() {
           <div className="about-text">
           <h1 className="text-3xl font-bold">Manage Experience Records</h1>
           </div>
-          <div className="container flex flex-col gap-6">
+          <div className="container flex about-text flex-col gap-6">
             {/* Add New Record Form */}
             <div className="border-t pt-4 mt-4">
               <h2 className="text-2xl font-bold">Add New Experience Record</h2>

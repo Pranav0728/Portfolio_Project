@@ -67,12 +67,12 @@ export default function AdminPage() {
     <>
       <Sidebar />
       <section className="about section" id="about">
-        <main className="min-h-screen" id="admin-page">
-          <section className="admin-section flex flex-col justify-center items-center py-20" id="admin">
+        <main className="min-h-screen about-content" id="admin-page">
+          <section className="admin-section about-text flex flex-col justify-center items-center py-20" id="admin">
             <div className="container flex flex-col gap-10">
               {personalData.map((user) => (
                 <div key={user._id} className="admin-item flex flex-col gap-5  border-b-2 pb-5">
-                  <h1 className='text-3xl'>Personal Information</h1>
+                  <h2 className='text-3xl'>Personal Information</h2>
                   <div className="flex flex-col">
                     <p className='text-lg mt-1 border-b p-2'><span className='font-bold'>Name: </span>{user.name}</p>
                     <p className='text-lg mt-1 border-b p-2'><span className='font-bold'>SubHeader: </span>{user.subHeader}</p>

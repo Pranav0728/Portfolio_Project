@@ -126,9 +126,12 @@ export default function ConferencesPage() {
     <>
       <Sidebar />
       <section className="about section" id="about">
-        <section className="min-h-screen p-10">
+        <section className="min-h-screen p-10 about-content">
+        <div className="about-text">
+
           <h1 className="text-3xl font-bold">Manage Conference Records</h1>
-          <div className="container flex flex-col gap-6">
+          </div>
+          <div className="container flex about-text flex-col gap-6">
             {/* Add New Record Form */}
             <div className="border-t pt-4 mt-4">
               <h2 className="text-2xl font-bold">Add New Conference Record</h2>
