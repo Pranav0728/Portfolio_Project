@@ -117,8 +117,10 @@ export default function ExperiencePage() {
     <>
       <Sidebar />
       <section className="about section" id="about">
-        <section className="min-h-screen p-10">
+        <section className="min-h-screen p-10 about-content">
+          <div className="about-text">
           <h1 className="text-3xl font-bold">Manage Experience Records</h1>
+          </div>
           <div className="container flex flex-col gap-6">
             {/* Add New Record Form */}
             <div className="border-t pt-4 mt-4">
