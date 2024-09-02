@@ -87,8 +87,8 @@ const About: NextPage = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="row flex justify-center items-center m-2">
-                    <div className="buttons">
+                  <div className="row flex ">
+                    <div className="buttons w-full">
                       <a
                         href="/assets/Resume.pdf"
                         target="_target"
