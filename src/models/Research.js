@@ -27,6 +27,9 @@ const researchSchema = new Schema(
     level: {
         type: String,
 
+    },
+    link: {
+      type: String,
     }
   },
   { timestamps: true }

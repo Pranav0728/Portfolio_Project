@@ -66,7 +66,7 @@ const ResearchPublications: NextPage = () => {
                   <strong>Level:</strong> {pub.level}
                 </p>
                 <br />
-                <Link href={'http://puneresearch.com/home'} target="_blank">
+                <Link href={pub.link} target="_blank">
                 <button className="bg-green-600 p-2 rounded-md scale-75"> Read here</button>
                 </Link>
               </div>

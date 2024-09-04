@@ -40,6 +40,7 @@ export async function POST(req) {
       referred,
       issn,
       level,
+      link
     } = data;
     await Research.create({
       authors,
@@ -50,6 +51,7 @@ export async function POST(req) {
       referred,
       issn,
       level,
+      link
     });
     return NextResponse.json(
       { message: "Publication Added Successfully" },

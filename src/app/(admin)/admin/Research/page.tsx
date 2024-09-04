@@ -14,6 +14,7 @@ export default function ResearchPage() {
     referred: "",
     issn: "",
     level: "",
+    link: "",
   });
 
   useEffect(() => {
@@ -106,6 +107,7 @@ export default function ResearchPage() {
           referred: "",
           issn: "",
           level: "",
+          link: "",
         });
         alert("Research record added successfully!");
         location.reload();
@@ -202,6 +204,14 @@ export default function ResearchPage() {
                 className="border px-3 py-2 rounded mt-2 w-full"
                 placeholder="Level"
               />
+              <input
+                type="text"
+                name="link"
+                value={newData.link}
+                onChange={handleChange}
+                className="border px-3 py-2 rounded mt-2 w-full"
+                placeholder="Link"
+              />
               <button
                 className="bg-green-500 text-white px-4 py-2 rounded mt-4 hover:bg-green-600"
                 onClick={handleAdd}
@@ -220,6 +230,7 @@ export default function ResearchPage() {
                   <p className="text-lg mt-1">Referred: {item.referred}</p>
                   <p className="text-lg mt-1">ISSN: {item.issn}</p>
                   <p className="text-lg mt-1">Level: {item.level}</p>
+                  <p className="text-lg mt-1">link: {item.link}</p>
                   <div className="mt-2 flex gap-4">
                     <button
                       className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
@@ -305,6 +316,14 @@ export default function ResearchPage() {
                   onChange={handleChange}
                   className="border px-3 py-2 rounded mt-2 w-full"
                   placeholder="Level"
+                />
+                <input
+                  type="text"
+                  name="link"
+                  value={editData.link}
+                  onChange={handleChange}
+                  className="border px-3 py-2 rounded mt-2 w-full"
+                  placeholder="link"
                 />
                 <button
                   className="bg-green-500 text-white px-4 py-2 rounded mt-4 hover:bg-green-600"
