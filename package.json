@@ -15,7 +15,7 @@
     "fs": "^0.0.1-security",
     "mongodb": "^6.8.0",
     "mongoose": "^8.6.0",
-    "next": "14.0.4",
+    "next": "14.2.35",
     "next-auth": "^4.24.7",
     "next-themes": "^0.2.1",
     "nextjs-toploader": "^1.6.4",
